@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: ThugsTBone.cs
+* Purpose: Class used to represent the Thugs T-Bone entree
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

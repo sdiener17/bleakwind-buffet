@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: ThalmorTriple.cs
+* Purpose: Class used to represent the Thalmor Triple entree
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

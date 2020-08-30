@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: MarkarthMilk.cs
+* Purpose: Class used to represent the Markarth Milk drink
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -76,7 +81,7 @@ namespace Data.Drinks {
         /// </summary>
         /// <returns></returns>
         public override string ToString() {
-            return "Markarth Milk";
+            return size.ToString() + "Markarth Milk";
         }
     }
 }

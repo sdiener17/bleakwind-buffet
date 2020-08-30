@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: GardenOrctOmelette.cs
+* Purpose: Class used to represent the Garden Orc Omelette entree
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

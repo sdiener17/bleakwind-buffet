@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: DoubleDraugr.cs
+* Purpose: Class used to represent the Double Draugr entree
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: BriarheartBurger.cs
+* Purpose: Class used to represent the Briarheart burger entree
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

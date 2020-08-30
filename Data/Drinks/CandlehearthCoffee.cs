@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: CandlehearthCoffee.cs
+* Purpose: Class used to represent the Candlehearth Coffee drink
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -91,7 +96,8 @@ namespace Data.Drinks {
         /// </summary>
         /// <returns></returns>
         public override string ToString() {
-            return "Candlehearth Coffee";
+            if(decaf) { return size + " Decaf Candlehearth Coffee"; }
+            return size.ToString() + " Candlehearth Coffee";
         }
     }
 }

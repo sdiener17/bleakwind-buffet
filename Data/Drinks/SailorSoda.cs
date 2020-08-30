@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: SailorSoda.cs
+* Purpose: Class used to represent the Sailor Soda drink
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -87,7 +92,7 @@ namespace Data.Drinks {
         /// </summary>
         /// <returns></returns>
         public override string ToString() {
-            return "Sailor Soda";
+            return size.ToString() + flavor.ToString()+ " Sailor Soda";
         }
     }
 }

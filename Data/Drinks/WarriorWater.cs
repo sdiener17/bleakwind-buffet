@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: WarriorWater.cs
+* Purpose: Class used to represent the Warrior Water drink
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -79,7 +84,7 @@ namespace Data.Drinks {
         /// </summary>
         /// <returns></returns>
         public override string ToString() {
-            return "Warrior Water";
+            return size.ToString() + " Warrior Water";
         }
     }
 }
