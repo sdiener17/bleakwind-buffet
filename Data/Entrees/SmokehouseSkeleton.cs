@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree {
-    class SmokehouseSkeleton {
+namespace BleakwindBuffet.Data.Entrees {
+    public class SmokehouseSkeleton {
 
         /// <summary>
         /// Gets the price of the combo.

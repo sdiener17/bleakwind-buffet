@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree {
-    class GardenOrcOmelette {
+namespace BleakwindBuffet.Data.Entrees {
+    public class GardenOrcOmelette {
 
         /// <summary>
         /// Gets the price of the omelette.

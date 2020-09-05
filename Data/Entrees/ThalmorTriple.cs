@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree {
-    class ThalmorTriple {
+namespace BleakwindBuffet.Data.Entrees {
+    public class ThalmorTriple {
         /// <summary>
         /// Gets the price of the burger.
         /// </summary>

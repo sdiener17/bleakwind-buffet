@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace Data.Sides {
-    class VokunSalad {
+namespace BleakwindBuffet.Data.Sides {
+    public class VokunSalad {
 
         /// <summary>
         /// Gets the price of the side.

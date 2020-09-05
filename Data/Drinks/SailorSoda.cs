@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace Data.Drinks {
-    class SailorSoda {
+namespace BleakwindBuffet.Data.Drinks {
+    public class SailorSoda {
         
         /// <summary>
         /// Gets the price of the drink.

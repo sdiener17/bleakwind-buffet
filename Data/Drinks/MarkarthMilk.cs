@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace Data.Drinks {
-    class MarkarthMilk {
+namespace BleakwindBuffet.Data.Drinks {
+    public class MarkarthMilk {
 
         /// <summary>
         /// Gets the price of the drink.

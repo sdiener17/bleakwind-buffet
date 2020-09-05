@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree {
-    class DoubleDraugr {
+namespace BleakwindBuffet.Data.Entrees {
+    public class DoubleDraugr {
 
         /// <summary>
         /// Gets the price of the burger.

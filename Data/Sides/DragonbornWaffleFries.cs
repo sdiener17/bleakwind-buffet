@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace Data.Sides {
-    class DragonbornWaffleFries {
+namespace BleakwindBuffet.Data.Sides {
+    public class DragonbornWaffleFries {
         /// <summary>
         /// Gets the price of the side.
         /// </summary>
