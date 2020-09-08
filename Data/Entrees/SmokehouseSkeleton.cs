@@ -47,7 +47,7 @@ namespace BleakwindBuffet.Data.Entrees {
         /// Getter/Setter for if hashbrowns are wanted.
         /// </summary>
         private bool hashbrowns = true;
-        public bool Hashbrowns {
+        public bool HashBrowns {
             get { return hashbrowns; }
             set { hashbrowns = value; }
         }
