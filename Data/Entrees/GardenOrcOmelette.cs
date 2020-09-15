@@ -8,19 +8,19 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
-    public class GardenOrcOmelette {
+    public class GardenOrcOmelette : Entree,IOrderItem{
 
         /// <summary>
         /// Gets the price of the omelette.
         /// </summary>
-        public double Price {
+        public override double Price {
             get { return 4.57; }
         }
 
         /// <summary>
         /// Gets the calories of the omelette.
         /// </summary>
-        public uint Calories {
+        public override uint Calories {
             get { return 404; }
         }
 
@@ -68,7 +68,7 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Gets the special instructions for the omelette (if the customer wants anything to not be included).
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> instructions = new List<string>();
                 if (!broccoli) { instructions.Add("Hold broccoli"); }

@@ -8,19 +8,19 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
-    public class SmokehouseSkeleton {
+    public class SmokehouseSkeleton :Entree,IOrderItem {
 
         /// <summary>
         /// Gets the price of the combo.
         /// </summary>
-        public double Price {
+        public override double Price {
             get { return 5.62; }
         }
 
         /// <summary>
         /// Gets the calories of the combo.
         /// </summary>
-        public uint Calories {
+        public override uint Calories {
             get { return 602; }
         }
 
@@ -67,7 +67,7 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Gets the special instructions for the combo (if the customer wants anything to not be included).
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> instructions = new List<string>();
                 if (!sausagelink) { instructions.Add("Hold sausage"); }

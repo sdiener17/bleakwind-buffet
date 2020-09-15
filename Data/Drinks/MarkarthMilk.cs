@@ -9,12 +9,12 @@ using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks {
-    public class MarkarthMilk {
+    public class MarkarthMilk : Drink,IOrderItem{
 
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
-        public double Price {
+        public override double Price {
             get {
                 if (size == Size.Small) { return 1.05; }
                 if (size == Size.Medium) { return 1.11; }
@@ -25,7 +25,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets the calories of the drink.
         /// </summary>
-        public uint Calories {
+        public override uint Calories {
             get {
                 if (size == Size.Small) { return 56; }
                 if (size == Size.Medium) { return 72; }
@@ -37,7 +37,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// Getter/Setter for the size of drink.
         /// </summary>
         private Size size = Size.Small;
-        public Size Size {
+        public override Size Size {
             get {
                 return size;
             }
@@ -62,7 +62,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets the special instructions for the drink.
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> instructions = new List<string>();
                 if (ice) { instructions.Add("Add ice"); }

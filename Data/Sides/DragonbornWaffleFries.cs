@@ -9,11 +9,11 @@ using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides {
-    public class DragonbornWaffleFries {
+    public class DragonbornWaffleFries : Side,IOrderItem{
         /// <summary>
         /// Gets the price of the side.
         /// </summary>
-        public double Price {
+        public override double Price {
             get {
                 if (size == Size.Small) { return 0.42; }
                 if (size == Size.Medium) { return 0.76; }
@@ -24,7 +24,7 @@ namespace BleakwindBuffet.Data.Sides {
         /// <summary>
         /// Gets the calories of the side.
         /// </summary>
-        public uint Calories {
+        public override uint Calories {
             get {
                 if (size == Size.Small) { return 77; }
                 if (size == Size.Medium) { return 89; }
@@ -36,7 +36,7 @@ namespace BleakwindBuffet.Data.Sides {
         /// Getter/Setter for the size of side.
         /// </summary>
         private Size size = Size.Small;
-        public Size Size {
+        public override Size Size {
             get {
                 return size;
             }
@@ -50,7 +50,7 @@ namespace BleakwindBuffet.Data.Sides {
         /// <summary>
         /// Returns an empty list (no special instructions for sides).
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> instructions = new List<string>();
                 return instructions;

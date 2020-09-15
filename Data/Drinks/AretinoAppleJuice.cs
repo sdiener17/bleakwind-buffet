@@ -8,13 +8,13 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakwindBuffet.Data.Drinks {
-    public class AretinoAppleJuice {
+namespace BleakwindBuffet.Data.Drinks{
+    public class AretinoAppleJuice : Drink, IOrderItem{
 
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
-        public double Price {
+        public override double Price {
             get {
                 if (size == Size.Small) { return 0.62; }
                 if (size == Size.Medium) { return 0.87; }
@@ -25,7 +25,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets the calories of the drink.
         /// </summary>
-        public uint Calories {
+        public override uint Calories {
             get {
                 if (size == Size.Small) { return 44; }
                 if (size == Size.Medium) { return 88; }
@@ -37,7 +37,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// Getter/Setter for the size of drink.
         /// </summary>
         private Size size = Size.Small;
-        public Size Size {
+        public override Size Size {
             get {
                 return size;
             }
@@ -61,7 +61,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets the special instructions for the drink.
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> instructions = new List<string>();
                 if (Ice) { instructions.Add("Add ice"); }

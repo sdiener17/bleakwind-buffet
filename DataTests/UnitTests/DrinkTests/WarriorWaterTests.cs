@@ -14,6 +14,18 @@ using BleakwindBuffet.Data.Drinks;
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
     public class WarriorWaterTests {
         [Fact]
+        public void ShouldBeAssignableToIOrderItem() {
+            WarriorWater w = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(w);
+        }
+
+        [Fact]
+        public void ShouldBeADrink() {
+            WarriorWater w = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(w);
+        }
+
+        [Fact]
         public void ShouldIncludeIceByDefault() {
             WarriorWater w = new WarriorWater();
             Assert.True(w.Ice);
