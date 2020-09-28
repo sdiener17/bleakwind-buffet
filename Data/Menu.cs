@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Entrees;
+﻿/*
+* Author: Sarah Diener
+* Class name: Menu.cs
+* Purpose: Static class used to create separate lists of the entree, side, and drink items and a list of all menu items.
+*/
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -53,8 +53,8 @@ namespace BleakwindBuffet.Data.Sides {
         /// </summary>
         public override List<string> SpecialInstructions {
             get {
-                List<string> instructions = new List<string>();
-                return instructions;
+                //List<string> instructions = new List<string>();
+                return new List<string>();
             }
         }
 

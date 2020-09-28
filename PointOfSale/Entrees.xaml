@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="PointOfSale.Entrees"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Name="briarBurger" Click="BriarheartBurgerClick" Margin="5" FontSize="15" Grid.Row="0" Grid.ColumnSpan="2">Briarheart Burger</Button>
+        <Button Name="doubleBurger" Click="DoubleDraugrClick" Margin="5" FontSize="15" Grid.Row="1" Grid.ColumnSpan="2">Double Draugr</Button>
+        <Button Name="tripleBurger" Click="ThalmorTripleClick" Margin="5" FontSize="15" Grid.Row="2" Grid.ColumnSpan="2">Thalmor Triple</Button>
+        <Button Name="philly" Click="PhillyClick" Margin="5" FontSize="15" Grid.Row="3" Grid.ColumnSpan="2">Philly Poacher</Button>
+        <Button Name="skeleton" Click="SkeletonClick" Margin="5" FontSize="15" Grid.Row="4" Grid.ColumnSpan="2">Smokhouse Skeleton</Button>
+        <Button Name="omelette" Click="GardenOmeletteClick" Margin="5" FontSize="15" Grid.Row="5" Grid.ColumnSpan="2">Garden Orc Omelette</Button>
+        <Button Name="tbone" Click="TBoneClick" Margin="5" FontSize="15" Grid.Row="6" Grid.ColumnSpan="2">Thugs T-Bone</Button>
+
+        <Button Name="doneButton" Click="DoneButtonClick" Margin="10" FontSize="10" Grid.Row="6" Grid.Column="1">Done</Button>
+        <Button Name="cancelButton" Click="CancelButtonClick" Margin="10" FontSize="10" Grid.Row="6" Grid.Column="0">Cancel</Button>
+
+        <StackPanel Name="briarheartOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
+            <CheckBox IsChecked="True" Margin="3">Ketchup</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Mustard</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Cheese</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Pickle</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Bun</CheckBox>
+            
+        </StackPanel>
+
+        <StackPanel Name="draugrOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
+            <CheckBox IsChecked="True" Margin="3">Ketchup</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Mustard</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Mayo</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Cheese</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Pickle</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Tomato</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Lettuce</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Bun</CheckBox>
+
+        </StackPanel>
+
+        <StackPanel Name="thalmorOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
+            <CheckBox IsChecked="True" Margin="3">Ketchup</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Mustard</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Mayo</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Cheese</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Pickle</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Tomato</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Lettuce</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Bacon</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Egg</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Bun</CheckBox>
+        </StackPanel>
+
+        <StackPanel Name="skeletonOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
+            <CheckBox IsChecked="True" Margin="3">Pancakes</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Sausage Link</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Egg</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Hashbrowns</CheckBox>
+        </StackPanel>
+
+        <StackPanel Name="omeletteOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
+            <CheckBox IsChecked="True" Margin="3">Cheddar</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Tomato</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Broccoli</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Mushrooms</CheckBox>
+        </StackPanel>
+
+        <StackPanel Name="phillyOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
+            <CheckBox IsChecked="True" Margin="3">Onion</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Sirloin</CheckBox>
+            <CheckBox IsChecked="True" Margin="3">Roll</CheckBox>
+        </StackPanel>
+
+        <StackPanel Name="tboneOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
+        </StackPanel>
+
+    </Grid>
+</UserControl>
