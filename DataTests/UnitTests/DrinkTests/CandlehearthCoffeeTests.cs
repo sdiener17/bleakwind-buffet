@@ -8,11 +8,84 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class CandlehearthCoffeeTests
     {
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(x);
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesProperty()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = false;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingDecafNotifiesProperty()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "Decaf", () =>
+            {
+                x.Decaf = true;
+            });
+            Assert.PropertyChanged(x, "Decaf", () =>
+            {
+                x.Decaf = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingRoomForCreamNotifiesProperty()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "RoomForCream", () =>
+            {
+                x.RoomForCream = true;
+            });
+            Assert.PropertyChanged(x, "RoomForCream", () =>
+            {
+                x.RoomForCream = false;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingSizeNotifiesProperty()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "Medium", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Large", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Small", () =>
+            {
+                x.Size = Size.Small;
+            });
+        }
+
+
         [Fact]
         public void ShouldBeAssignableToIOrderItem() {
             CandlehearthCoffee c = new CandlehearthCoffee();

@@ -7,11 +7,64 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class PhillyPoacherTests
     {
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(x);
+        }
+
+
+        [Fact]
+        public void ChangingSirloinNotifiesProperty()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Sirloin", () =>
+            {
+                x.Sirloin = false;
+            });
+            Assert.PropertyChanged(x, "Sirloin", () =>
+            {
+                x.Sirloin = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingOnionNotifiesProperty()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Onion", () =>
+            {
+                x.Onion = false;
+            });
+            Assert.PropertyChanged(x, "Onion", () =>
+            {
+                x.Onion = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingRollNotifiesProperty()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Roll", () =>
+            {
+                x.Roll = false;
+            });
+            Assert.PropertyChanged(x, "Roll", () =>
+            {
+                x.Roll = true;
+            });
+        }
+
+
+
         [Fact]
         public void ShouldBeAssignableToIOrderItem() {
             PhillyPoacher p = new PhillyPoacher();

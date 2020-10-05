@@ -8,11 +8,55 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
     {
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            AretinoAppleJuice x = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(x);
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesProperty()
+        {
+            AretinoAppleJuice x = new AretinoAppleJuice();
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = false;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingSizeNotifiesProperty()
+        {
+            AretinoAppleJuice x = new AretinoAppleJuice();
+            Assert.PropertyChanged(x, "Medium", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Large", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Small", () =>
+            {
+                x.Size = Size.Small;
+            });
+        }
+
+
         [Fact]
         public void ShouldBeAssignableToIOrderItem() {
             AretinoAppleJuice aj = new AretinoAppleJuice();

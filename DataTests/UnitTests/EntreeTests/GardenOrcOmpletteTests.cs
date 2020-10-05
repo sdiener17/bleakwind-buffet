@@ -7,11 +7,80 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class GardenOrcOmeletteTests
     {
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(x);
+        }
+
+        [Fact]
+        public void ChangingTomatoNotifiesProperty()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Tomato", () =>
+            {
+                x.Tomato = false;
+            });
+            Assert.PropertyChanged(x, "Tomato", () =>
+            {
+                x.Tomato = true;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingBroccoliNotifiesProperty()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Broccoli", () =>
+            {
+                x.Broccoli = false;
+            });
+            Assert.PropertyChanged(x, "Broccoli", () =>
+            {
+                x.Broccoli = true;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingCheddarNotifiesProperty()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Cheddar", () =>
+            {
+                x.Cheddar = false;
+            });
+            Assert.PropertyChanged(x, "Cheddar", () =>
+            {
+                x.Cheddar = true;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingMushroomNotifiesProperty()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Mushrooms", () =>
+            {
+                x.Mushrooms = false;
+            });
+            Assert.PropertyChanged(x, "Mushrooms", () =>
+            {
+                x.Mushrooms = true;
+            });
+        }
+
+
+
         [Fact]
         public void ShouldBeAssignableToIOrderItem() {
             GardenOrcOmelette go = new GardenOrcOmelette();

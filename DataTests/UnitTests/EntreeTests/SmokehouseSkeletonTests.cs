@@ -7,11 +7,79 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
     {
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(x);
+        }
+
+
+        [Fact]
+        public void ChangingPancakeNotifiesProperty()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "Pancake", () =>
+            {
+                x.Pancake = false;
+            });
+            Assert.PropertyChanged(x, "Pancake", () =>
+            {
+                x.Pancake = true;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingSausageLinkNotifiesProperty()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "SausageLink", () =>
+            {
+                x.SausageLink = false;
+            });
+            Assert.PropertyChanged(x, "SausageLink", () =>
+            {
+                x.SausageLink = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingHashBrownsNotifiesProperty()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "HashBrowns", () =>
+            {
+                x.HashBrowns = false;
+            });
+            Assert.PropertyChanged(x, "HashBrowns", () =>
+            {
+                x.HashBrowns = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingEggNotifiesProperty()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "Egg", () =>
+            {
+                x.Egg = false;
+            });
+            Assert.PropertyChanged(x, "Egg", () =>
+            {
+                x.Egg = true;
+            });
+        }
+
+
+
         [Fact]
         public void ShouldBeAssignableToIOrderItem() {
             SmokehouseSkeleton s = new SmokehouseSkeleton();

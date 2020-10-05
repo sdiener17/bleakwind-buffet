@@ -10,9 +10,70 @@ using System.Text;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
     public class WarriorWaterTests {
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(x);
+        }
+
+
+        [Fact]
+        public void ChangingSizeNotifiesProperty()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.PropertyChanged(x, "Medium", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Large", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Small", () =>
+            {
+                x.Size = Size.Small;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingIceNotifiesProperty()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = true;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingLemonNotifiesProperty()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.PropertyChanged(x, "Lemon", () =>
+            {
+                x.Lemon = false;
+            });
+            Assert.PropertyChanged(x, "Lemon", () =>
+            {
+                x.Lemon = true;
+            });
+        }
+
+
+
         [Fact]
         public void ShouldBeAssignableToIOrderItem() {
             WarriorWater w = new WarriorWater();
