@@ -5,11 +5,14 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks{
-    public class AretinoAppleJuice : Drink, IOrderItem{
+    public class AretinoAppleJuice : Drink, IOrderItem,INotifyPropertyChanged{
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets the price of the drink.
@@ -43,6 +46,7 @@ namespace BleakwindBuffet.Data.Drinks{
             }
             set {
                 size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(size.ToString()));
             }
         }
 
@@ -52,7 +56,9 @@ namespace BleakwindBuffet.Data.Drinks{
         private bool ice = false;
         public bool Ice {
             get { return ice; }
-            set { ice = value; }
+            set { ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
 

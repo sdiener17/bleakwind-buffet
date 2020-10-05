@@ -9,14 +9,33 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height=".7*"/>
+            <RowDefinition Height=".3*"/>
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" FontSize="15" HorizontalAlignment="Center">Order #</Label>
-        <StackPanel Grid.Row="2">
-            <Label FontSize="15" HorizontalAlignment="Center">Subtotal:</Label>
-            <Label FontSize="15" HorizontalAlignment="Center">Tax:</Label>
-            <Label FontSize="15" HorizontalAlignment="Center">Total:</Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.ColumnSpan="2"  FontSize="15" HorizontalAlignment="Center">Order #</Label>
+
+        <ListBox Name="orderListBox" Grid.Row="1" Grid.ColumnSpan="2" FontSize="10" Margin="5"></ListBox>
+
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <Button Name="editButton" Margin="5">Edit</Button>
+            <Button Name="cancelButton" Click="CancelClick" Margin="5">Cancel</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Button Name="previewButton" Margin="5">Preview</Button>
+            <Button Name="finishButton" Click="FinishClick" Margin="5">Finish</Button>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="5,1,1,1">
+            <Label FontSize="15" HorizontalAlignment="Left">Subtotal:</Label>
+            <Label FontSize="15" HorizontalAlignment="Left">Tax:</Label>
+            <Label FontSize="15" HorizontalAlignment="Left">Total:</Label>
         </StackPanel>
 
     </Grid>

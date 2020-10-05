@@ -5,11 +5,14 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides {
-    public class VokunSalad : Side,IOrderItem{
+    public class VokunSalad : Side,IOrderItem,INotifyPropertyChanged{
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets the price of the side.
@@ -43,6 +46,7 @@ namespace BleakwindBuffet.Data.Sides {
             }
             set {
                 size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(size.ToString()));
             }
         }
 

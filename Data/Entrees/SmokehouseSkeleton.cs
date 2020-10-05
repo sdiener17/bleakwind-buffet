@@ -5,10 +5,13 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
-    public class SmokehouseSkeleton :Entree,IOrderItem {
+    public class SmokehouseSkeleton :Entree,IOrderItem,INotifyPropertyChanged {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets the price of the combo.
@@ -30,7 +33,9 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool sausagelink = true;
         public bool SausageLink {
             get { return sausagelink; }
-            set { sausagelink = value; }
+            set { sausagelink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+            }
         }
 
 
@@ -40,7 +45,9 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool egg = true;
         public bool Egg {
             get { return egg; }
-            set { egg = value; }
+            set { egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+            }
         }
 
         /// <summary>
@@ -49,7 +56,9 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool hashbrowns = true;
         public bool HashBrowns {
             get { return hashbrowns; }
-            set { hashbrowns = value; }
+            set { hashbrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+            }
         }
 
         /// <summary>
@@ -58,7 +67,9 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool pancake = true;
         public bool Pancake {
             get { return pancake; }
-            set { pancake = value; }
+            set { pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+            }
         }
 
 

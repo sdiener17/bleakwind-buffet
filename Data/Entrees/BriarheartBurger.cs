@@ -5,10 +5,13 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
-    public class BriarheartBurger : Entree,IOrderItem{
+    public class BriarheartBurger : Entree,IOrderItem, INotifyPropertyChanged{
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets the price of the burger.
@@ -30,7 +33,10 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool bun = true;
         public bool Bun {
             get { return bun; }
-            set { bun = value; }
+            set { 
+                bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+            }
         }
 
 
@@ -40,7 +46,11 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool ketchup = true;
         public bool Ketchup {
             get{ return ketchup; }
-            set{ ketchup = value; }
+            set{ 
+                ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+            }
+
         }
 
         /// <summary>
@@ -49,7 +59,10 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool mustard = true;
         public bool Mustard {
             get { return mustard; }
-            set { mustard = value; }
+            set { 
+                mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+            }
         }
 
         /// <summary>
@@ -58,7 +71,10 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool cheese = true;
         public bool Cheese {
             get { return cheese; }
-            set { cheese = value; }
+            set { 
+                cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+            }
         }
 
         /// <summary>
@@ -67,7 +83,10 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool pickle = true;
         public bool Pickle {
             get { return pickle; }
-            set { pickle = value; }
+            set { 
+                pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+            }
         }
 
         /// <summary>

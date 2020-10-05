@@ -18,8 +18,24 @@ namespace PointOfSale {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+
         public MainWindow() {
             InitializeComponent();
+            
+            createOrderWindow.Visibility = Visibility.Hidden;
+            homeScreenWindow.NewOrder += OnNewOrderClick;
+            createOrderWindow.orderDisplayWindow.FinishOrder += OnFinishOrderClick;
         }
+
+        void OnNewOrderClick(object sender, OrderClickEventArgs e) {
+            createOrderWindow.Visibility = Visibility.Visible;
+            homeScreenWindow.Visibility = Visibility.Hidden;
+        }
+
+        void OnFinishOrderClick(object sender, FinishOrderEventArgs e) {
+            createOrderWindow.Visibility = Visibility.Hidden;
+            homeScreenWindow.Visibility = Visibility.Visible;
+        }
+
     }
 }

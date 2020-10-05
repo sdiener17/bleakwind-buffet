@@ -24,5 +24,29 @@ namespace PointOfSale {
         public OrderDisplay() {
             InitializeComponent();
         }
+
+
+        public event EventHandler<FinishOrderEventArgs> FinishOrder;
+
+        public void FinishClick(object sender, EventArgs e) {
+            FinishOrder.Invoke(this, new FinishOrderEventArgs());
+        }
+
+        public void CancelClick(object sender, EventArgs e) {
+            string messageText = "Are you sure you want to cancel the current order?";
+            string caption = "Cancel Order";
+            MessageBoxButton button = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult result = MessageBox.Show(messageText, caption, button, icon);
+
+            switch (result) {
+                case MessageBoxResult.Yes:
+                    FinishOrder.Invoke(this, new FinishOrderEventArgs());
+                    break;
+                case MessageBoxResult.No:
+                    
+                    break;
+            }
+        }
     }
 }

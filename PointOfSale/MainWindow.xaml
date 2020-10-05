@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
     <Grid>
-        <local:CreateOrder></local:CreateOrder>
+        <local:HomeScreen x:Name="homeScreenWindow"></local:HomeScreen>
+        <local:CreateOrder x:Name="createOrderWindow"></local:CreateOrder>
     </Grid>
 </Window>

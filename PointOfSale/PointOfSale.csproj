@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\bleakwindlogo1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\bleakwindlogo1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 

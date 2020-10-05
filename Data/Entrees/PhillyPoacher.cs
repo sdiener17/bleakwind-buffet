@@ -5,10 +5,13 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
-    public class PhillyPoacher : Entree,IOrderItem{
+    public class PhillyPoacher : Entree,IOrderItem,INotifyPropertyChanged{
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets the price of the sandwich.
@@ -30,7 +33,9 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool sirloin = true;
         public bool Sirloin {
             get { return sirloin; }
-            set { sirloin = value; }
+            set { sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+            }
         }
 
 
@@ -40,7 +45,9 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool onion = true;
         public bool Onion {
             get { return onion; }
-            set { onion = value; }
+            set { onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+            }
         }
 
         /// <summary>
@@ -49,7 +56,9 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool roll = true;
         public bool Roll {
             get { return roll; }
-            set { roll = value; }
+            set { roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+            }
         }
 
        
