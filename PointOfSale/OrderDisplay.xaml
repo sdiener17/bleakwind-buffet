@@ -20,7 +20,9 @@
         
         <Label Grid.Row="0" Grid.ColumnSpan="2"  FontSize="15" HorizontalAlignment="Center">Order #</Label>
 
-        <ListBox Name="orderListBox" Grid.Row="1" Grid.ColumnSpan="2" FontSize="10" Margin="5"></ListBox>
+        <ListBox Name="orderListBox" Grid.Row="1" Grid.ColumnSpan="2" FontSize="10" Margin="5">
+            
+        </ListBox>
 
         <StackPanel Grid.Row="2" Grid.Column="0">
             <Button Name="editButton" Margin="5">Edit</Button>

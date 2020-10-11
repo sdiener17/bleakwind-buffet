@@ -3,7 +3,9 @@
 * Class name: Entrees.xaml.cs
 * Purpose: Partial class used to create the entrees section of the POS and interaction logic.
 */
+using BleakwindBuffet.Data.Entrees;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -23,6 +25,7 @@ namespace PointOfSale {
     /// </summary>
     public partial class Entrees : UserControl {
 
+        Entree currentOrderItem;
 
         public Entrees() {
             InitializeComponent();
@@ -40,6 +43,9 @@ namespace PointOfSale {
         void BriarheartBurgerClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("briarBurger");
             ClickedEntree("briarBurger");
+            currentOrderItem = new BriarheartBurger();
+            //BriarheartBurger  b = new BriarheartBurger();
+
         }
 
         /// <summary>
@@ -51,6 +57,7 @@ namespace PointOfSale {
         void DoubleDraugrClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("doubleBurger");
             ClickedEntree("doubleBurger");
+            currentOrderItem = new DoubleDraugr();
         }
 
 
@@ -63,6 +70,7 @@ namespace PointOfSale {
         void ThalmorTripleClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("tripleBurger");
             ClickedEntree("tripleBurger");
+            currentOrderItem = new ThalmorTriple();
         }
 
 
@@ -75,6 +83,7 @@ namespace PointOfSale {
         void PhillyClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("philly");
             ClickedEntree("philly");
+            currentOrderItem = new PhillyPoacher();
         }
 
 
@@ -87,6 +96,7 @@ namespace PointOfSale {
         void SkeletonClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("skeleton");
             ClickedEntree("skeleton");
+            currentOrderItem = new SmokehouseSkeleton();
         }
 
 
@@ -99,6 +109,7 @@ namespace PointOfSale {
         void GardenOmeletteClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("omelette");
             ClickedEntree("omelette");
+            currentOrderItem = new GardenOrcOmelette();
         }
 
 
@@ -112,8 +123,11 @@ namespace PointOfSale {
         void TBoneClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("tbone");
             ClickedEntree("tbone");
+            currentOrderItem = new ThugsTBone();
         }
 
+
+        public EventHandler<AddEToOrderEventArgs> AddToOrder;
 
         /// <summary>
         /// Event handler for done button. Adds item with specifications to the order and resets buttons to the proper location
@@ -122,7 +136,7 @@ namespace PointOfSale {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void DoneButtonClick(object sender, RoutedEventArgs e) {
-            //TODO: logic to add selected item to the order list
+            AddToOrder?.Invoke(this, new AddEToOrderEventArgs(currentOrderItem));
             RefreshButtons();
         }
 

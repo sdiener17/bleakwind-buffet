@@ -15,12 +15,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Drinks;
 
 namespace PointOfSale {
     /// <summary>
     /// Interaction logic for Drinks.xaml
     /// </summary>
     public partial class Drinks : UserControl {
+
+        Drink currentOrderItem;
 
         public Drinks() {
             InitializeComponent();
@@ -31,34 +34,43 @@ namespace PointOfSale {
         void SodaClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("soda");
             ClickedDrink("soda");
+            currentOrderItem = new SailorSoda();
         }
 
 
         void AppleJuiceClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("appleJuice");
             ClickedDrink("appleJuice");
+            currentOrderItem = new AretinoAppleJuice();
         }
 
 
         void MilkClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("milk");
             ClickedDrink("milk");
+            currentOrderItem = new MarkarthMilk();
         }
 
 
         void CoffeeClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("coffee");
             ClickedDrink("coffee");
+            currentOrderItem = new CandlehearthCoffee();
         }
 
 
         void WaterClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("water");
             ClickedDrink("water");
+            currentOrderItem = new WarriorWater();
         }
 
 
+        public EventHandler<AddDToOrderEventArgs> AddToOrder;
+
+
         void DoneButtonClick(object sender, RoutedEventArgs e) {
+            AddToOrder?.Invoke(this, new AddDToOrderEventArgs(currentOrderItem));
             RefreshButtons();
         }
 

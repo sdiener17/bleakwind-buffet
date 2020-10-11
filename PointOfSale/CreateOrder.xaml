@@ -26,9 +26,9 @@
             
         </StackPanel>
         <Label Grid.Row="1" Grid.Column="0" FontSize="10" HorizontalAlignment="Center"> Entrees</Label>
-        <local:Entrees Grid.Column="0" Grid.Row="1"></local:Entrees>
-        <local:Drinks Grid.Column="2" Grid.Row="1"></local:Drinks>
-        <local:Sides Grid.Column="1" Grid.Row="1"></local:Sides>
+        <local:Entrees x:Name="entreesWindow" Grid.Column="0" Grid.Row="1"></local:Entrees>
+        <local:Drinks x:Name="drinksWindow" Grid.Column="2" Grid.Row="1"></local:Drinks>
+        <local:Sides x:Name="sidesWindow" Grid.Column="1" Grid.Row="1"></local:Sides>
         <local:OrderDisplay x:Name="orderDisplayWindow" Grid.Column="3" Grid.Row="1"></local:OrderDisplay>
     </Grid>
 </UserControl>

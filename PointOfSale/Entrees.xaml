@@ -32,57 +32,57 @@
         <Button Name="cancelButton" Click="CancelButtonClick" Margin="10" FontSize="10" Grid.Row="6" Grid.Column="0">Cancel</Button>
 
         <StackPanel Name="briarheartOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
-            <CheckBox IsChecked="True" Margin="3">Ketchup</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Mustard</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Cheese</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Pickle</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Bun</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Ketchup}" Margin="3">Ketchup</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Mustard}" Margin="3">Mustard</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Cheese}" Margin="3">Cheese</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Pickle}" Margin="3">Pickle</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Bun}" Margin="3">Bun</CheckBox>
             
         </StackPanel>
 
         <StackPanel Name="draugrOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
-            <CheckBox IsChecked="True" Margin="3">Ketchup</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Mustard</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Mayo</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Cheese</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Pickle</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Tomato</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Lettuce</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Bun</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Ketchup}" Margin="3">Ketchup</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Mustard}" Margin="3">Mustard</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Mayo}" Margin="3">Mayo</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Cheese}" Margin="3">Cheese</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Pickle}" Margin="3">Pickle</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Tomato}" Margin="3">Tomato</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Lettuce}" Margin="3">Lettuce</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Bun}" Margin="3">Bun</CheckBox>
 
         </StackPanel>
 
         <StackPanel Name="thalmorOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
-            <CheckBox IsChecked="True" Margin="3">Ketchup</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Mustard</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Mayo</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Cheese</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Pickle</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Tomato</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Lettuce</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Bacon</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Egg</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Bun</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Ketchup}" Margin="3">Ketchup</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Mustard}" Margin="3">Mustard</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Mayo}" Margin="3">Mayo</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Cheese}" Margin="3">Cheese</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Pickle}" Margin="3">Pickle</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Tomato}" Margin="3">Tomato</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Lettuce}" Margin="3">Lettuce</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Bacon}" Margin="3">Bacon</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Egg}" Margin="3">Egg</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Bun}" Margin="3">Bun</CheckBox>
         </StackPanel>
 
         <StackPanel Name="skeletonOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
-            <CheckBox IsChecked="True" Margin="3">Pancakes</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Sausage Link</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Egg</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Hashbrowns</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Pancakes}" Margin="3">Pancakes</CheckBox>
+            <CheckBox IsChecked="{Binding Path=SausageLink}" Margin="3">Sausage Link</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Egg}" Margin="3">Egg</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Hashbrowns}" Margin="3">Hashbrowns</CheckBox>
         </StackPanel>
 
         <StackPanel Name="omeletteOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
-            <CheckBox IsChecked="True" Margin="3">Cheddar</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Tomato</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Broccoli</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Mushrooms</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Cheddar}" Margin="3">Cheddar</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Tomato}" Margin="3">Tomato</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Broccoli}" Margin="3">Broccoli</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Mushrooms}" Margin="3">Mushrooms</CheckBox>
         </StackPanel>
 
         <StackPanel Name="phillyOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
-            <CheckBox IsChecked="True" Margin="3">Onion</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Sirloin</CheckBox>
-            <CheckBox IsChecked="True" Margin="3">Roll</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Onion}" Margin="3">Onion</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Sirloin}" Margin="3">Sirloin</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Roll}" Margin="3">Roll</CheckBox>
         </StackPanel>
 
         <StackPanel Name="tboneOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">

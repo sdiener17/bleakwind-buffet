@@ -25,6 +25,8 @@ namespace PointOfSale {
             createOrderWindow.Visibility = Visibility.Hidden;
             homeScreenWindow.NewOrder += OnNewOrderClick;
             createOrderWindow.orderDisplayWindow.FinishOrder += OnFinishOrderClick;
+            //CreateOrder.DataContext = new Order();
+           //createOrderWindow. += OnAddToOrderClick;
         }
 
         void OnNewOrderClick(object sender, OrderClickEventArgs e) {

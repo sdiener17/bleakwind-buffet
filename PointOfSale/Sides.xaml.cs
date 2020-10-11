@@ -15,12 +15,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
 
 namespace PointOfSale {
     /// <summary>
     /// Interaction logic for Sides.xaml
     /// </summary>
     public partial class Sides : UserControl {
+
+        Side currentOrderItem;
 
         public Sides() {
             InitializeComponent();
@@ -30,29 +33,36 @@ namespace PointOfSale {
         void FriesClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("fries");
             ClickedDrink("fries");
+            currentOrderItem = new DragonbornWaffleFries();
         }
 
 
         void SaladClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("salad");
             ClickedDrink("salad");
+            currentOrderItem = new VokunSalad();
         }
 
 
         void GritsClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("grits");
             ClickedDrink("grits");
+            currentOrderItem = new MadOtarGrits();
         }
 
 
         void MiraakClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("miraak");
             ClickedDrink("miraak");
+            currentOrderItem = new FriedMiraak();
         }
 
 
+        public EventHandler<AddSToOrderEventArgs> AddToOrder;
+
 
         void DoneButtonClick(object sender, RoutedEventArgs e) {
+            AddToOrder?.Invoke(this, new AddSToOrderEventArgs(currentOrderItem));
             RefreshButtons();
         }
 

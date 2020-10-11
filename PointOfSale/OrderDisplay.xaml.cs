@@ -15,6 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Sides;
 
 namespace PointOfSale {
     /// <summary>
@@ -23,6 +26,7 @@ namespace PointOfSale {
     public partial class OrderDisplay : UserControl {
         public OrderDisplay() {
             InitializeComponent();
+            
         }
 
 
@@ -48,5 +52,20 @@ namespace PointOfSale {
                     break;
             }
         }
+
+
+        public void AddEntreeToOrder(Entree e) {
+            orderListBox.Items.Add(e.ToString());
+        }
+
+        public void AddDrinkToOrder(Drink d) {
+            orderListBox.Items.Add(d.ToString());
+        }
+
+        public void AddSideToOrder(Side s) {
+            orderListBox.Items.Add(s.ToString());
+        }
+
+
     }
 }
