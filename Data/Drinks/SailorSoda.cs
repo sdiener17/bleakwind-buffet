@@ -60,6 +60,8 @@ namespace BleakwindBuffet.Data.Drinks {
             get { return ice; }
             set { ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+
             }
         }
 
@@ -85,7 +87,9 @@ namespace BleakwindBuffet.Data.Drinks {
         public override List<string> SpecialInstructions {
             get {
                 List<string> instructions = new List<string>();
-                if (!ice) { instructions.Add("Hold ice"); }
+                if (!ice) { 
+                    instructions.Add("Hold ice");
+                }
                 return instructions;
             }
         }

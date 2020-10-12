@@ -60,6 +60,7 @@ namespace BleakwindBuffet.Data.Drinks {
             get { return ice; }
             set { ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

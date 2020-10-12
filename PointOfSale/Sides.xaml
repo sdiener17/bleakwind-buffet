@@ -11,6 +11,7 @@
         <ObjectDataProvider x:Key="sizes" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="local:Size"/>
+                
             </ObjectDataProvider.MethodParameters>
             
         </ObjectDataProvider>

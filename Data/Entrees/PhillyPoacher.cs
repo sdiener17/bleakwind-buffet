@@ -35,6 +35,7 @@ namespace BleakwindBuffet.Data.Entrees {
             get { return sirloin; }
             set { sirloin = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -47,6 +48,7 @@ namespace BleakwindBuffet.Data.Entrees {
             get { return onion; }
             set { onion = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -58,6 +60,7 @@ namespace BleakwindBuffet.Data.Entrees {
             get { return roll; }
             set { roll = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
