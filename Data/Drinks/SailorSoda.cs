@@ -47,6 +47,8 @@ namespace BleakwindBuffet.Data.Drinks {
             set {
                 size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(size.ToString()));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Price.ToString()));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Calories.ToString()));
             }
         }
 

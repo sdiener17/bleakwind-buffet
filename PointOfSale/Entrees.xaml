@@ -66,10 +66,10 @@
         </StackPanel>
 
         <StackPanel Name="skeletonOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">
-            <CheckBox IsChecked="{Binding Path=Pancakes}" Margin="3">Pancakes</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Pancake}" Margin="3">Pancakes</CheckBox>
             <CheckBox IsChecked="{Binding Path=SausageLink}" Margin="3">Sausage Link</CheckBox>
             <CheckBox IsChecked="{Binding Path=Egg}" Margin="3">Egg</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Hashbrowns}" Margin="3">Hashbrowns</CheckBox>
+            <CheckBox IsChecked="{Binding Path=HashBrowns}" Margin="3">Hashbrowns</CheckBox>
         </StackPanel>
 
         <StackPanel Name="omeletteOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Margin="10">

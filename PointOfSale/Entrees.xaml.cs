@@ -26,6 +26,13 @@ namespace PointOfSale {
     public partial class Entrees : UserControl {
 
         Entree currentOrderItem;
+        BriarheartBurger bhb = new BriarheartBurger();
+        DoubleDraugr dd = new DoubleDraugr();
+        ThalmorTriple tt = new ThalmorTriple();
+        SmokehouseSkeleton ss = new SmokehouseSkeleton();
+        PhillyPoacher pp = new PhillyPoacher();
+        GardenOrcOmelette goo = new GardenOrcOmelette();
+        ThugsTBone ttb = new ThugsTBone();
 
         public Entrees() {
             InitializeComponent();
@@ -43,7 +50,7 @@ namespace PointOfSale {
         void BriarheartBurgerClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("briarBurger");
             ClickedEntree("briarBurger");
-            currentOrderItem = new BriarheartBurger();
+            currentOrderItem = bhb;
             //BriarheartBurger  b = new BriarheartBurger();
 
         }
@@ -57,7 +64,7 @@ namespace PointOfSale {
         void DoubleDraugrClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("doubleBurger");
             ClickedEntree("doubleBurger");
-            currentOrderItem = new DoubleDraugr();
+            currentOrderItem = dd;
         }
 
 
@@ -70,7 +77,7 @@ namespace PointOfSale {
         void ThalmorTripleClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("tripleBurger");
             ClickedEntree("tripleBurger");
-            currentOrderItem = new ThalmorTriple();
+            currentOrderItem = tt;
         }
 
 
@@ -83,7 +90,7 @@ namespace PointOfSale {
         void PhillyClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("philly");
             ClickedEntree("philly");
-            currentOrderItem = new PhillyPoacher();
+            currentOrderItem = pp;
         }
 
 
@@ -96,7 +103,7 @@ namespace PointOfSale {
         void SkeletonClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("skeleton");
             ClickedEntree("skeleton");
-            currentOrderItem = new SmokehouseSkeleton();
+            currentOrderItem = ss;
         }
 
 
@@ -109,7 +116,7 @@ namespace PointOfSale {
         void GardenOmeletteClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("omelette");
             ClickedEntree("omelette");
-            currentOrderItem = new GardenOrcOmelette();
+            currentOrderItem = goo;
         }
 
 
@@ -123,7 +130,7 @@ namespace PointOfSale {
         void TBoneClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("tbone");
             ClickedEntree("tbone");
-            currentOrderItem = new ThugsTBone();
+            currentOrderItem = ttb;
         }
 
 
@@ -254,6 +261,21 @@ namespace PointOfSale {
             omeletteOptions.Visibility = Visibility.Hidden;
             skeletonOptions.Visibility = Visibility.Hidden;
             tboneOptions.Visibility = Visibility.Hidden;
+
+            bhb = new BriarheartBurger();
+            dd = new DoubleDraugr();
+            tt = new ThalmorTriple();
+            ss = new SmokehouseSkeleton();
+            pp = new PhillyPoacher();
+            goo = new GardenOrcOmelette();
+            ttb = new ThugsTBone();
+            briarheartOptions.DataContext = bhb;
+            draugrOptions.DataContext = dd;
+            thalmorOptions.DataContext = tt;
+            skeletonOptions.DataContext = ss;
+            phillyOptions.DataContext = pp;
+            omeletteOptions.DataContext = goo;
+            tboneOptions.DataContext = ttb;
         }
 
 
@@ -269,6 +291,7 @@ namespace PointOfSale {
             cancelButton.Visibility = Visibility.Visible;
 
             if (b.Equals("briarBurger")) {
+                
                 briarheartOptions.Visibility = Visibility.Visible;
             }
             else if (b.Equals("doubleBurger")) {

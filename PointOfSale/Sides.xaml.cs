@@ -24,37 +24,44 @@ namespace PointOfSale {
     public partial class Sides : UserControl {
 
         Side currentOrderItem;
+        DragonbornWaffleFries dwf = new DragonbornWaffleFries();
+        VokunSalad vs = new VokunSalad();
+        FriedMiraak fm = new FriedMiraak();
+        MadOtarGrits mog = new MadOtarGrits();
 
         public Sides() {
             InitializeComponent();
             RefreshButtons();
+            
+
         }
 
         void FriesClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("fries");
             ClickedDrink("fries");
-            currentOrderItem = new DragonbornWaffleFries();
+            currentOrderItem = dwf;
+            friesOptions.DataContext = dwf;
         }
 
 
         void SaladClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("salad");
             ClickedDrink("salad");
-            currentOrderItem = new VokunSalad();
+            currentOrderItem = vs;
         }
 
 
         void GritsClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("grits");
             ClickedDrink("grits");
-            currentOrderItem = new MadOtarGrits();
+            currentOrderItem = mog;
         }
 
 
         void MiraakClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("miraak");
             ClickedDrink("miraak");
-            currentOrderItem = new FriedMiraak();
+            currentOrderItem = fm;
         }
 
 
@@ -69,6 +76,7 @@ namespace PointOfSale {
 
         void CancelButtonClick(object sender, RoutedEventArgs e) {
             RefreshButtons();
+            
         }
 
 
@@ -125,6 +133,15 @@ namespace PointOfSale {
             saladOptions.Visibility = Visibility.Hidden;
             gritsOptions.Visibility = Visibility.Hidden;
             miraakOptions.Visibility = Visibility.Hidden;
+
+            dwf = new DragonbornWaffleFries();
+            vs = new VokunSalad();
+            fm = new FriedMiraak();
+            mog = new MadOtarGrits();
+            friesOptions.DataContext = dwf;
+            saladOptions.DataContext = vs;
+            miraakOptions.DataContext = fm;
+            gritsOptions.DataContext = mog;
         }
 
 
@@ -139,6 +156,7 @@ namespace PointOfSale {
             cancelButton.Visibility = Visibility.Visible;
 
             if (b.Equals("fries")) {
+                
                 friesOptions.Visibility = Visibility.Visible;
             }
             else if (b.Equals("salad")) {

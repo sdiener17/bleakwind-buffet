@@ -35,9 +35,9 @@
         </StackPanel>
         
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="5,1,1,1">
-            <Label FontSize="15" HorizontalAlignment="Left">Subtotal:</Label>
-            <Label FontSize="15" HorizontalAlignment="Left">Tax:</Label>
-            <Label FontSize="15" HorizontalAlignment="Left">Total:</Label>
+            <Label x:Name="subtotalLabel" FontSize="15" HorizontalAlignment="Left" Content="Subtotal:"></Label>
+            <Label x:Name="taxLabel" FontSize="15" HorizontalAlignment="Left" Content="Tax:"></Label>
+            <Label x:Name="totalLabel" FontSize="15" HorizontalAlignment="Left" Content="Total:"></Label>
         </StackPanel>
 
     </Grid>

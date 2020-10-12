@@ -4,8 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="sizes" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Size"/>
+            </ObjectDataProvider.MethodParameters>
+            
+        </ObjectDataProvider>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <RadioButton Content="{TemplateBinding ContentPresenter.Content}" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -31,17 +49,19 @@
 
         <StackPanel Name="friesOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4" Margin="5">
             <StackPanel Margin="2">
-                <RadioButton IsChecked="True">Small</RadioButton>
-                <RadioButton>Medium</RadioButton>
-                <RadioButton>Large</RadioButton>
+                <ListBox ItemsSource="{Binding Source={StaticResource sizes}}" 
+                         SelectedItem="{Binding Path=Size}"/>
+                <RadioButton IsChecked="{Binding Path=Size.Small}">Small</RadioButton>
+                <RadioButton IsChecked="{Binding Path=Size.Medium}">Medium</RadioButton>
+                <RadioButton IsChecked="{Binding Path=Size.Large}">Large</RadioButton>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Name="saladOptions" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4" Margin="5">
             <StackPanel Margin="2">
-                <RadioButton IsChecked="True">Small</RadioButton>
-                <RadioButton>Medium</RadioButton>
-                <RadioButton>Large</RadioButton>
+                <RadioButton IsChecked="{Binding Path=Small}">Small</RadioButton>
+                <RadioButton IsChecked="{Binding Path=Medium}">Medium</RadioButton>
+                <RadioButton IsChecked="{Binding Path=Large}">Large</RadioButton>
             </StackPanel>
         </StackPanel>
 
