@@ -3,6 +3,11 @@
 * Class name: Drinks.xaml.cs
 * Purpose: Partial class used to create the drinks section of the POS and interaction logic.
 */
+/*
+* Author: Sarah Diener
+* Class name: Drinks.xaml.cs
+* Purpose: Partial class used to control the Drinks user control
+*/
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,6 +29,11 @@ namespace PointOfSale {
     public partial class Drinks : UserControl {
 
         Drink currentOrderItem;
+        SailorSoda ss = new SailorSoda();
+        AretinoAppleJuice aaj = new AretinoAppleJuice();
+        MarkarthMilk mm = new MarkarthMilk();
+        WarriorWater ww = new WarriorWater();
+        CandlehearthCoffee chc = new CandlehearthCoffee();
 
         public Drinks() {
             InitializeComponent();
@@ -31,50 +41,89 @@ namespace PointOfSale {
         }
 
 
+        /// <summary>
+        /// Event handler for when the sailor soda button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SodaClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("soda");
             ClickedDrink("soda");
-            currentOrderItem = new SailorSoda();
+            currentOrderItem = ss;
         }
 
-
+        /// <summary>
+        /// Event handler for when the apple juice button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AppleJuiceClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("appleJuice");
             ClickedDrink("appleJuice");
-            currentOrderItem = new AretinoAppleJuice();
+            currentOrderItem = aaj;
         }
 
 
+
+        /// <summary>
+        /// Event handler for when the milk button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void MilkClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("milk");
             ClickedDrink("milk");
-            currentOrderItem = new MarkarthMilk();
+            currentOrderItem = mm;
         }
 
 
+
+        /// <summary>
+        /// Event handler for when the coffee button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CoffeeClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("coffee");
             ClickedDrink("coffee");
-            currentOrderItem = new CandlehearthCoffee();
+            currentOrderItem = chc;
         }
 
 
+
+        /// <summary>
+        /// Event handler for when the water button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void WaterClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("water");
             ClickedDrink("water");
-            currentOrderItem = new WarriorWater();
+            currentOrderItem = ww;
         }
 
 
         public EventHandler<AddDToOrderEventArgs> AddToOrder;
 
 
+
+        /// <summary>
+        /// Event handler for when the done button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void DoneButtonClick(object sender, RoutedEventArgs e) {
             AddToOrder?.Invoke(this, new AddDToOrderEventArgs(currentOrderItem));
             RefreshButtons();
         }
 
 
+
+        /// <summary>
+        /// Event handler for when the cancel button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CancelButtonClick(object sender, RoutedEventArgs e) {
             RefreshButtons();
         }
@@ -129,24 +178,46 @@ namespace PointOfSale {
             /// <summary>
             /// Sets all entrees back to visible and puts them in the correct row
             /// </summary>
-            void RefreshButtons() {
-            soda.Visibility = Visibility.Visible;
-            appleJuice.Visibility = Visibility.Visible;
-            milk.Visibility = Visibility.Visible;
-            coffee.Visibility = Visibility.Visible;
-            water.Visibility = Visibility.Visible;
-            doneButton.Visibility = Visibility.Hidden;
-            cancelButton.Visibility = Visibility.Hidden;
-            Grid.SetRow(soda, 0);
-            Grid.SetRow(appleJuice, 1);
-            Grid.SetRow(milk, 2);
-            Grid.SetRow(coffee, 3);
-            Grid.SetRow(water, 4);
-            sodaOptions.Visibility = Visibility.Hidden;
-            appleJuiceOptions.Visibility = Visibility.Hidden;
-            milkOptions.Visibility = Visibility.Hidden;
-            coffeeOptions.Visibility = Visibility.Hidden;
-            waterOptions.Visibility = Visibility.Hidden;
+    void RefreshButtons() {
+                soda.Visibility = Visibility.Visible;
+                appleJuice.Visibility = Visibility.Visible;
+                milk.Visibility = Visibility.Visible;
+                coffee.Visibility = Visibility.Visible;
+                water.Visibility = Visibility.Visible;
+                doneButton.Visibility = Visibility.Hidden;
+                cancelButton.Visibility = Visibility.Hidden;
+                Grid.SetRow(soda, 0);
+                Grid.SetRow(appleJuice, 1);
+                Grid.SetRow(milk, 2);
+                Grid.SetRow(coffee, 3);
+                Grid.SetRow(water, 4);
+                sodaOptionsPanel.Visibility = Visibility.Hidden;
+                appleJuiceOptionsPanel.Visibility = Visibility.Hidden;
+                milkOptionsPanel.Visibility = Visibility.Hidden;
+                coffeeOptionsPanel.Visibility = Visibility.Hidden;
+                waterOptionsPanel.Visibility = Visibility.Hidden;
+
+            ss = new SailorSoda();
+            aaj = new AretinoAppleJuice();
+            mm = new MarkarthMilk();
+            chc = new CandlehearthCoffee();
+            ww = new WarriorWater();
+            sodaOptionsS.DataContext = ss;
+            sodaOptionsIY.DataContext = ss;
+            sodaOptionsIN.DataContext = ss;
+            sodaOptionsF.DataContext = ss;
+            appleJuiceOptionsS.DataContext = aaj;
+            appleJuiceOptionsI.DataContext = aaj;
+            milkOptionsS.DataContext = mm;
+            milkOptionsI.DataContext = mm;
+            coffeeOptionsS.DataContext = chc;
+            coffeeOptionsI.DataContext = chc;
+            coffeeOptionsC.DataContext = chc;
+            coffeeOptionsD.DataContext = chc;
+            waterOptionsS.DataContext = ww;
+            waterOptionsI.DataContext = ww;
+            waterOptionsL.DataContext = ww;
+
         }
 
 
@@ -161,19 +232,19 @@ namespace PointOfSale {
             cancelButton.Visibility = Visibility.Visible;
 
             if (b.Equals("soda")) {
-                sodaOptions.Visibility = Visibility.Visible;
+                sodaOptionsPanel.Visibility = Visibility.Visible;
             }
             else if (b.Equals("appleJuice")) {
-                appleJuiceOptions.Visibility = Visibility.Visible;
+                appleJuiceOptionsPanel.Visibility = Visibility.Visible;
             }
             else if (b.Equals("milk")) {
-                milkOptions.Visibility = Visibility.Visible;
+                milkOptionsPanel.Visibility = Visibility.Visible;
             }
             else if (b.Equals("coffee")) {
-                coffeeOptions.Visibility = Visibility.Visible;
+                coffeeOptionsPanel.Visibility = Visibility.Visible;
             }
             else if (b.Equals("water")) {
-                waterOptions.Visibility = Visibility.Visible;
+                waterOptionsPanel.Visibility = Visibility.Visible;
             }
             else { return; }
         }

@@ -26,22 +26,40 @@ namespace PointOfSale {
     public partial class CreateOrder : UserControl {
         public CreateOrder() {
             InitializeComponent();
-            Order order = new Order();
+            
             entreesWindow.AddToOrder += OnDoneEntreeClick;
             drinksWindow.AddToOrder += OnDoneDrinkClick;
             sidesWindow.AddToOrder += OnDoneSideClick;
         }
 
 
+
+        /// <summary>
+        /// Event handler for when the done button is clicked on an entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnDoneEntreeClick(object sender, AddEToOrderEventArgs e) {
             orderDisplayWindow.AddEntreeToOrder(e.orderItem);
         }
 
 
+        /// <summary>
+        /// Event handler for when the done button is clicked on a drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnDoneDrinkClick(object sender, AddDToOrderEventArgs e) {
             orderDisplayWindow.AddDrinkToOrder(e.orderItem);
         }
 
+
+
+        /// <summary>
+        /// Event handler for when the done button is clicked on a side
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnDoneSideClick(object sender, AddSToOrderEventArgs e) {
             orderDisplayWindow.AddSideToOrder(e.orderItem);
         }

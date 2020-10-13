@@ -1,6 +1,6 @@
 ﻿/*
 * Author: Sarah Diener
-* Class name: Drinks.xaml.cs
+* Class name: Sides.xaml.cs
 * Purpose: Partial class used to create the sides section of the POS and interaction logic.
 */
 using System;
@@ -36,44 +36,78 @@ namespace PointOfSale {
 
         }
 
+
+        /// <summary>
+        /// Event handler for fries button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void FriesClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("fries");
-            ClickedDrink("fries");
+            ClickedSide("fries");
             currentOrderItem = dwf;
             friesOptions.DataContext = dwf;
         }
 
 
+
+        /// <summary>
+        /// Event handler for salad button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SaladClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("salad");
-            ClickedDrink("salad");
+            ClickedSide("salad");
             currentOrderItem = vs;
         }
 
 
+
+        /// <summary>
+        /// Event handler for grits button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void GritsClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("grits");
-            ClickedDrink("grits");
+            ClickedSide("grits");
             currentOrderItem = mog;
         }
 
 
+
+        /// <summary>
+        /// Event handler for miraak button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void MiraakClick(object sender, RoutedEventArgs e) {
             HideAndMoveButtons("miraak");
-            ClickedDrink("miraak");
+            ClickedSide("miraak");
             currentOrderItem = fm;
         }
 
 
         public EventHandler<AddSToOrderEventArgs> AddToOrder;
 
-
+        /// <summary>
+        /// Event handler for done button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void DoneButtonClick(object sender, RoutedEventArgs e) {
             AddToOrder?.Invoke(this, new AddSToOrderEventArgs(currentOrderItem));
             RefreshButtons();
         }
 
 
+
+        /// <summary>
+        /// Event handler for cancel button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CancelButtonClick(object sender, RoutedEventArgs e) {
             RefreshButtons();
             
@@ -129,10 +163,10 @@ namespace PointOfSale {
             Grid.SetRow(salad, 1);
             Grid.SetRow(grits, 2);
             Grid.SetRow(miraak, 3);
-            friesOptions.Visibility = Visibility.Hidden;
-            saladOptions.Visibility = Visibility.Hidden;
-            gritsOptions.Visibility = Visibility.Hidden;
-            miraakOptions.Visibility = Visibility.Hidden;
+            friesOptionsPanel.Visibility = Visibility.Hidden;
+            saladOptionsPanel.Visibility = Visibility.Hidden;
+            gritsOptionsPanel.Visibility = Visibility.Hidden;
+            miraakOptionsPanel.Visibility = Visibility.Hidden;
 
             dwf = new DragonbornWaffleFries();
             vs = new VokunSalad();
@@ -151,7 +185,7 @@ namespace PointOfSale {
         /// entree.
         /// </summary>
         /// <param name="b"></param>
-        void ClickedDrink(string b) {
+        void ClickedSide(string b) {
             doneButton.Visibility = Visibility.Visible;
             cancelButton.Visibility = Visibility.Visible;
 

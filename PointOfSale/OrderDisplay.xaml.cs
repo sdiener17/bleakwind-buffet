@@ -42,10 +42,22 @@ namespace PointOfSale {
 
         public event EventHandler<FinishOrderEventArgs> FinishOrder;
 
+
+        /// <summary>
+        /// Event handler for when the finish order button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void FinishClick(object sender, EventArgs e) {
             FinishOrder.Invoke(this, new FinishOrderEventArgs());
         }
 
+
+        /// <summary>
+        /// Event handler for when the cancel button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void CancelClick(object sender, EventArgs e) {
             string messageText = "Are you sure you want to cancel the current order?";
             string caption = "Cancel Order";
@@ -64,6 +76,10 @@ namespace PointOfSale {
         }
 
 
+        /// <summary>
+        /// Adds the entree 'e' to the order
+        /// </summary>
+        /// <param name="e"></param>
         public void AddEntreeToOrder(Entree e) {
             orderListBox.Items.Add(e.ToString());
             subtotal += e.Price;
@@ -72,6 +88,11 @@ namespace PointOfSale {
             
         }
 
+
+        /// <summary>
+        /// Adds the drink 'd' to the order
+        /// </summary>
+        /// <param name="d"></param>
         public void AddDrinkToOrder(Drink d) {
             orderListBox.Items.Add(d.ToString());
             subtotal += d.Price;
@@ -80,6 +101,11 @@ namespace PointOfSale {
             
         }
 
+
+        /// <summary>
+        /// Adds the side 's' to the order
+        /// </summary>
+        /// <param name="s"></param>
         public void AddSideToOrder(Side s) {
             orderListBox.Items.Add(s.ToString());
             subtotal += s.Price;
@@ -112,10 +138,10 @@ namespace PointOfSale {
                 }
             }
 
-            System.Diagnostics.Debug.WriteLine("Number entrees before: "+numberEntrees);
-            System.Diagnostics.Debug.WriteLine("Number drinks before: " + numberDrinks);
-            System.Diagnostics.Debug.WriteLine("Number sides before: " + numberSides);
-            System.Diagnostics.Debug.WriteLine("");
+            //System.Diagnostics.Debug.WriteLine("Number entrees before: "+numberEntrees);
+            //System.Diagnostics.Debug.WriteLine("Number drinks before: " + numberDrinks);
+            //System.Diagnostics.Debug.WriteLine("Number sides before: " + numberSides);
+            //System.Diagnostics.Debug.WriteLine("");
 
             //Finds number of combos
             for (int i = numberEntrees; i >0; i--) {
@@ -128,12 +154,12 @@ namespace PointOfSale {
                 else { break; }
             }
 
-            System.Diagnostics.Debug.WriteLine("Number entrees after: " + numberEntrees);
-            System.Diagnostics.Debug.WriteLine("Number drinks after: " + numberDrinks);
-            System.Diagnostics.Debug.WriteLine("Number sides after: " + numberSides);
-            System.Diagnostics.Debug.WriteLine("Number combos before: " + numberOfCombos);
-            System.Diagnostics.Debug.WriteLine("Number applied before: " + numberOfCombosApplied);
-            System.Diagnostics.Debug.WriteLine("");
+            //System.Diagnostics.Debug.WriteLine("Number entrees after: " + numberEntrees);
+            //System.Diagnostics.Debug.WriteLine("Number drinks after: " + numberDrinks);
+            //System.Diagnostics.Debug.WriteLine("Number sides after: " + numberSides);
+            //System.Diagnostics.Debug.WriteLine("Number combos before: " + numberOfCombos);
+            //System.Diagnostics.Debug.WriteLine("Number applied before: " + numberOfCombosApplied);
+            //System.Diagnostics.Debug.WriteLine("");
 
             //Taking into account combos that have already been applied
             if (numberOfCombos > numberOfCombosApplied) {
@@ -141,10 +167,12 @@ namespace PointOfSale {
                 numberOfCombosApplied = numberOfCombos;
             }
 
-            System.Diagnostics.Debug.WriteLine("Number combos after: " + numberOfCombos);
-            System.Diagnostics.Debug.WriteLine("Number applied after: " + numberOfCombosApplied);
-            System.Diagnostics.Debug.WriteLine("--------------------------");
-            System.Diagnostics.Debug.WriteLine("");
+            combosLabel.Content = "Combos Applied: " + numberOfCombosApplied;
+
+            //System.Diagnostics.Debug.WriteLine("Number combos after: " + numberOfCombos);
+            //System.Diagnostics.Debug.WriteLine("Number applied after: " + numberOfCombosApplied);
+            //System.Diagnostics.Debug.WriteLine("--------------------------");
+            //System.Diagnostics.Debug.WriteLine("");
 
 
         }//end FindCombos
