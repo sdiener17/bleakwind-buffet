@@ -5,8 +5,11 @@ using System.Text;
 namespace PointOfSale {
     public class OrderClickEventArgs : EventArgs {
 
-        public OrderClickEventArgs() {
 
+       
+
+        public OrderClickEventArgs() {
+            
         }
     }
 }

@@ -46,7 +46,7 @@ namespace PointOfSale {
             HideAndMoveButtons("fries");
             ClickedSide("fries");
             currentOrderItem = dwf;
-            friesOptions.DataContext = dwf;
+            friesOptionsBox1.DataContext = dwf;
         }
 
 
@@ -122,6 +122,7 @@ namespace PointOfSale {
         /// <param name="b">The button that was clicked</param>
         void HideAndMoveButtons(string d) {
             if (d.Equals("fries")) {
+                
                 salad.Visibility = Visibility.Hidden;
                 grits.Visibility = Visibility.Hidden;
                 miraak.Visibility = Visibility.Hidden;
@@ -167,12 +168,13 @@ namespace PointOfSale {
             saladOptionsPanel.Visibility = Visibility.Hidden;
             gritsOptionsPanel.Visibility = Visibility.Hidden;
             miraakOptionsPanel.Visibility = Visibility.Hidden;
-
+            
             dwf = new DragonbornWaffleFries();
             vs = new VokunSalad();
             fm = new FriedMiraak();
             mog = new MadOtarGrits();
-            friesOptions.DataContext = dwf;
+            friesOptionsPanel.DataContext = dwf;
+            //friesOptions.DataContext = dwf;
             saladOptions.DataContext = vs;
             miraakOptions.DataContext = fm;
             gritsOptions.DataContext = mog;
@@ -190,16 +192,20 @@ namespace PointOfSale {
             cancelButton.Visibility = Visibility.Visible;
 
             if (b.Equals("fries")) {
-                
-                friesOptions.Visibility = Visibility.Visible;
+                friesOptionsBox1.Visibility = Visibility.Visible;
+                friesOptionsPanel.Visibility = Visibility.Visible;
+                friesOptionsBox1.Visibility = Visibility.Visible;
             }
             else if (b.Equals("salad")) {
+                saladOptionsPanel.Visibility = Visibility.Visible;
                 saladOptions.Visibility = Visibility.Visible;
             }
             else if (b.Equals("grits")) {
+                gritsOptionsPanel.Visibility = Visibility.Visible;
                 gritsOptions.Visibility = Visibility.Visible;
             }
             else if (b.Equals("miraak")) {
+                miraakOptionsPanel.Visibility = Visibility.Visible;
                 miraakOptions.Visibility = Visibility.Visible;
             }
             else { return; }

@@ -17,20 +17,21 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        <Label Grid.Row="0" Grid.ColumnSpan="2"  FontSize="15" HorizontalAlignment="Center">Order #</Label>
+
+        <Label x:Name ="orderNumberLabel" Grid.Row="0" Grid.ColumnSpan="2"  FontSize="15" 
+               HorizontalAlignment="Center" Content="Order # "></Label>
 
         <ListBox Name="orderListBox" Grid.Row="1" Grid.ColumnSpan="2" FontSize="10" Margin="5">
             
         </ListBox>
 
         <StackPanel Grid.Row="2" Grid.Column="0">
-            <Button Name="editButton" Margin="5">Remove</Button>
+            <Button Name="removeButton" Click="RemoveClick" Margin="5">Remove</Button>
             <Button Name="cancelButton" Click="CancelClick" Margin="5">Cancel</Button>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <Button Name="previewButton" Margin="5">Preview</Button>
+            <Button Name="previewButton" Click="PreviewClick" Margin="5">Preview</Button>
             <Button Name="finishButton" Click="FinishClick" Margin="5">Finish</Button>
         </StackPanel>
         

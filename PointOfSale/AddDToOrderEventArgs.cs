@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Sarah Diener
+* Class name: AddDToOrderEventArgs
+* Purpose: Event args for adding a drink to the order
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Drinks;

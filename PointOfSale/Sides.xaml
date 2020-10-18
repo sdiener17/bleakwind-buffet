@@ -20,7 +20,9 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate>
-                        <RadioButton Content="{TemplateBinding ContentPresenter.Content}" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
+                        <RadioButton Content="{TemplateBinding ContentPresenter.Content}" 
+                                     IsChecked="{Binding Path=IsSelected, 
+                            RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -50,10 +52,12 @@
 
 
         <StackPanel Name="friesOptionsPanel" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4" Margin="5">
-            <StackPanel Margin="2">
+            <!--<StackPanel Margin="2">
                 <ListBox Name="friesOptions" ItemsSource="{Binding Source={StaticResource sizes}}" 
                          SelectedItem="{Binding Path=Size}"/>
-            </StackPanel>
+            </StackPanel>-->
+            
+            <ComboBox Name="friesOptionsBox1" ItemsSource="{Binding Source={StaticResource sizes}}" SelectedItem="{Binding Path=Size}"/>
         </StackPanel>
 
         <StackPanel Name="saladOptionsPanel" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4" Margin="5">

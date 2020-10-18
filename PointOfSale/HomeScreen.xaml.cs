@@ -22,7 +22,11 @@ namespace PointOfSale {
 
         public event EventHandler<OrderClickEventArgs> NewOrder;
 
+
+        
+
         public void StartOrderClick(object sender, EventArgs e) {
+            
             NewOrder?.Invoke(this, new OrderClickEventArgs());
         }
     }

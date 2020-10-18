@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
+        x:Name="MainWin"
         Title="MainWindow" Height="500" Width="800">
     <Grid>
         <local:HomeScreen x:Name="homeScreenWindow"></local:HomeScreen>
         <local:CreateOrder x:Name="createOrderWindow"></local:CreateOrder>
+        <local:SelectPayment x:Name="selectPaymentWindow"></local:SelectPayment>
     </Grid>
 </Window>
