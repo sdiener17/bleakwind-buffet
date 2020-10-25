@@ -63,7 +63,7 @@ namespace PointOfSale {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void FinishClick(object sender, EventArgs e) {
-            FinishOrder.Invoke(this, new FinishOrderEventArgs(entrees,sides,drinks));
+            FinishOrder.Invoke(this, new FinishOrderEventArgs(entrees,sides,drinks,total));
         }
 
 

@@ -11,5 +11,6 @@
         <local:HomeScreen x:Name="homeScreenWindow"></local:HomeScreen>
         <local:CreateOrder x:Name="createOrderWindow"></local:CreateOrder>
         <local:SelectPayment x:Name="selectPaymentWindow"></local:SelectPayment>
+        <local:CashDrawer x:Name="cashDrawerWindow"></local:CashDrawer>
     </Grid>
 </Window>

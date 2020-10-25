@@ -43,10 +43,11 @@ namespace PointOfSale {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void FriesClick(object sender, RoutedEventArgs e) {
+            friesOptionsPanel.DataContext = dwf;
             HideAndMoveButtons("fries");
             ClickedSide("fries");
             currentOrderItem = dwf;
-            friesOptionsBox1.DataContext = dwf;
+            //friesOptionsBox1.DataContext = dwf;
         }
 
 
@@ -192,9 +193,9 @@ namespace PointOfSale {
             cancelButton.Visibility = Visibility.Visible;
 
             if (b.Equals("fries")) {
-                friesOptionsBox1.Visibility = Visibility.Visible;
+                friesOptions.Visibility = Visibility.Visible;
                 friesOptionsPanel.Visibility = Visibility.Visible;
-                friesOptionsBox1.Visibility = Visibility.Visible;
+                
             }
             else if (b.Equals("salad")) {
                 saladOptionsPanel.Visibility = Visibility.Visible;

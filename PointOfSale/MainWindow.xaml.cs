@@ -33,9 +33,15 @@ namespace PointOfSale {
             
             createOrderWindow.Visibility = Visibility.Hidden;
             selectPaymentWindow.Visibility = Visibility.Hidden;
+            cashDrawerWindow.Visibility = Visibility.Hidden;
+
             homeScreenWindow.NewOrder += OnNewOrderClick;
             createOrderWindow.orderDisplayWindow.FinishOrder += OnFinishOrderClick;
             createOrderWindow.orderDisplayWindow.CancelOrder += OnCancelOrderClick;
+            selectPaymentWindow.ReturnOrder += OnReturnOrderClick;
+            selectPaymentWindow.OpenCashDrawer += OnCashOptionClick;
+            cashDrawerWindow.BackButton += OnBackButtonClick;
+            cashDrawerWindow.FinishCashButton += OnFinishCashButtonClick;
             //CreateOrder.DataContext = new Order();
            //createOrderWindow. += OnAddToOrderClick;
         }
@@ -76,7 +82,13 @@ namespace PointOfSale {
         /// <param name="e"></param>
         void OnFinishOrderClick(object sender, FinishOrderEventArgs e) {
             createOrderWindow.Visibility = Visibility.Hidden;
+
             selectPaymentWindow.Visibility = Visibility.Visible;
+            selectPaymentWindow.entrees = e.entrees;
+            selectPaymentWindow.drinks = e.drinks;
+            selectPaymentWindow.sides = e.sides;
+            selectPaymentWindow.total = e.total;
+            selectPaymentWindow.UpdateOrderListBox();
         }
 
 
@@ -89,6 +101,52 @@ namespace PointOfSale {
             createOrderWindow.Visibility = Visibility.Hidden;
             selectPaymentWindow.Visibility = Visibility.Hidden;
             homeScreenWindow.Visibility = Visibility.Visible;
+        }
+
+
+        /// <summary>
+        /// Event handler for when the return to order button is clicked on the select payment options screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnReturnOrderClick(object sender, ReturnToOrderEventArgs e) {
+            createOrderWindow.Visibility = Visibility.Visible;
+            selectPaymentWindow.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        /// Event handler for when the cash option is clicked on the selelct payment options screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnCashOptionClick(object sender, CashDrawerEventArgs e) {
+            cashDrawerWindow.totalCashDrawer = selectPaymentWindow.total;
+            cashDrawerWindow.totalSaleText.Text = "Total Sale: $ " + string.Format("{0:0.00}", selectPaymentWindow.total);
+            selectPaymentWindow.Visibility = Visibility.Hidden;
+            cashDrawerWindow.Visibility = Visibility.Visible;
+        }
+
+        
+        /// <summary>
+        /// Event handler for when the back button is clicked on the cash drawer window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnBackButtonClick(object sender, BackButtonEventArgs e) {
+            selectPaymentWindow.Visibility = Visibility.Visible;
+            cashDrawerWindow.Visibility = Visibility.Hidden;
+        }
+
+
+        /// <summary>
+        /// Event handler for when the finish button is clicked for the cash payment option
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnFinishCashButtonClick(object sender, FinishCashPaymentEventArgs e) {
+            selectPaymentWindow.Visibility = Visibility.Visible;
+            selectPaymentWindow.finalizeSaleButton.IsEnabled = true;
+            cashDrawerWindow.Visibility = Visibility.Hidden;
         }
 
     }

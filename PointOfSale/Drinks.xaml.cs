@@ -202,10 +202,7 @@ namespace PointOfSale {
             mm = new MarkarthMilk();
             chc = new CandlehearthCoffee();
             ww = new WarriorWater();
-            sodaOptionsS.DataContext = ss;
-            sodaOptionsIY.DataContext = ss;
-            sodaOptionsIN.DataContext = ss;
-            sodaOptionsF.DataContext = ss;
+            sodaOptionsPanel.DataContext = ss;
             appleJuiceOptionsS.DataContext = aaj;
             appleJuiceOptionsI.DataContext = aaj;
             milkOptionsS.DataContext = mm;

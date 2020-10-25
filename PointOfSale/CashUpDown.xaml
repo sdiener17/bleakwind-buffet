@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="PointOfSale.CashUpDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="0" FontSize="20" HorizontalAlignment="Center" Margin="2" 
+                MinWidth="50" MaxHeight="50" VerticalAlignment="Center" x:Name="plusButton" 
+                Click="PlusButtonClick">+</Button>
+        
+        <TextBlock Grid.Column="1" FontSize="20" HorizontalAlignment="Center" Margin="2"
+                   Text="0" MaxWidth="60" MaxHeight="50" VerticalAlignment="Center" x:Name="textBlock"
+                   ></TextBlock>
+        
+        <Button Grid.Column="2" FontSize="25" HorizontalAlignment="Center" Margin="2" FontStyle="Oblique"
+                MinWidth="50" MaxHeight="50" VerticalAlignment="Center" x:Name="minusButton"
+                Click="MinusButtonClick">-</Button>
+        
+    </Grid>
+    
+</UserControl>
