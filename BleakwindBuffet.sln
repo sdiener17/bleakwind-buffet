@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTests", "DataTests\Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{FA500D88-A0D1-436C-909B-DFC9B0ED842F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "..\WebMilestone\Website\Website\Website.csproj", "{74944E94-6C36-4DC0-9A44-AE296CDF1505}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website\Website.csproj", "{6B8AFD4D-D634-4C19-9C65-68CD664E792C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{FA500D88-A0D1-436C-909B-DFC9B0ED842F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA500D88-A0D1-436C-909B-DFC9B0ED842F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA500D88-A0D1-436C-909B-DFC9B0ED842F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74944E94-6C36-4DC0-9A44-AE296CDF1505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74944E94-6C36-4DC0-9A44-AE296CDF1505}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74944E94-6C36-4DC0-9A44-AE296CDF1505}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74944E94-6C36-4DC0-9A44-AE296CDF1505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B8AFD4D-D634-4C19-9C65-68CD664E792C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B8AFD4D-D634-4C19-9C65-68CD664E792C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B8AFD4D-D634-4C19-9C65-68CD664E792C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B8AFD4D-D634-4C19-9C65-68CD664E792C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
