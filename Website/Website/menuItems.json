@@ -1,0 +1,135 @@
+[
+  {
+    "Type": "Entree",
+    "Name": "Briarheart Burger",
+    "PriceS": 6.32,
+    "CaloriesS": 743
+  },
+  {
+    "Type": "Entree",
+    "Name": "Double Draugr",
+    "PriceS": 7.32,
+    "CaloriesS": 843
+  },
+  {
+    "Type": "Entree",
+    "Name": "Thalmor Triple",
+    "PriceS": 8.32,
+    "CaloriesS": 943
+  },
+  {
+    "Type": "Entree",
+    "Name": "Smokehouse Skeleton",
+    "PriceS": 5.62,
+    "CaloriesS": 602
+  },
+  {
+    "Type": "Entree",
+    "Name": "Garden Orc Omelette",
+    "PriceS": 4.57,
+    "CaloriesS": 404
+  },
+  {
+    "Type": "Entree",
+    "Name": "Philly Poacher",
+    "PriceS": 7.32,
+    "CaloriesS": 784
+  },
+  {
+    "Type": "Entree",
+    "Name": "Thugs T-Bone",
+    "PriceS": 6.44,
+    "CaloriesS": 983
+  },
+  {
+    "Type": "Side",
+    "Name": "Dragonborn Waffle Fries",
+    "PriceS": 0.42,
+    "PriceM": 0.76,
+    "PriceL": 0.96,
+    "CaloriesS": 77,
+    "CaloriesM": 89,
+    "CaloriesL": 100
+  },
+  {
+    "Type": "Side",
+    "Name": "Vokun Salad",
+    "PriceS": 0.93,
+    "PriceM": 1.08,
+    "PriceL": 1.82,
+    "CaloriesS": 41,
+    "CaloriesM": 52,
+    "CaloriesL": 73
+  },
+  {
+    "Type": "Side",
+    "Name": "Mad Otar Grits",
+    "PriceS": 1.22,
+    "PriceM": 1.58,
+    "PriceL": 1.93,
+    "CaloriesS": 105,
+    "CaloriesM": 142,
+    "CaloriesL": 179
+  },
+  {
+    "Type": "Side",
+    "Name": "Fried Miraak",
+    "PriceS": 1.78,
+    "PriceM": 2.01,
+    "PriceL": 2.88,
+    "CaloriesS": 151,
+    "CaloriesM": 236,
+    "CaloriesL": 306
+  },
+  {
+    "Type": "Drink",
+    "Name": "Aretino Apple Juice",
+    "PriceS": 0.62,
+    "PriceM": 0.87,
+    "PriceL": 1.01,
+    "CaloriesS": 44,
+    "CaloriesM": 88,
+    "CaloriesL": 132
+  },
+  {
+    "Type": "Drink",
+    "Name": "Sailor Soda",
+    "PriceS": 1.42,
+    "PriceM": 1.72,
+    "PriceL": 2.07,
+    "CaloriesS": 117,
+    "CaloriesM": 153,
+    "CaloriesL": 205
+  },
+  {
+    "Type": "Drink",
+    "Name": "Markarth Milk",
+    "PriceS": 1.05,
+    "PriceM": 1.11,
+    "PriceL": 1.22,
+    "CaloriesS": 56,
+    "CaloriesM": 72,
+    "CaloriesL": 93
+  },
+  {
+    "Type": "Drink",
+    "Name": "Candlehearth Coffee",
+    "PriceS": 0.75,
+    "PriceM": 1.25,
+    "PriceL": 1.75,
+    "CaloriesS": 7,
+    "CaloriesM": 10,
+    "CaloriesL": 20
+  },
+  {
+    "Type": "Drink",
+    "Name": "Warrior Water",
+    "PriceS": 0.00,
+    "PriceM": 0.00,
+    "PriceL": 0.00,
+    "CaloriesS": 0,
+    "CaloriesM": 0,
+    "CaloriesL": 0
+  }
+
+]

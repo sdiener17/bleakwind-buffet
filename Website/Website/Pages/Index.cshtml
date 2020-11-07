@@ -11,52 +11,64 @@
     Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure 
     and earned your loot, so spend it with us!.</p>
 </div>
+
 <div class="menucontent">
     <div class="menu">
+        <form id="menucol">
+            <div id="search">
+                <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+                <input type="submit" value="Search">
+            </div>
+
+            <h4>Menu Type</h4>
+            @foreach (String type in MenuDatabase.MenuTypes) {
+                <label>
+                    <input type="checkbox" name="MenuTypes" value="@type" />
+                    @type
+                </label>
+            }
+            <h4>Price</h4>
+            <div>
+                Between
+                <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="min" />
+                and
+                <input name="PriceMax" type="number" min="0" max="10" step="0.1" placeholder="max" />
+            </div>
+            <h4>Calories</h4>
+            <div>
+                Between
+                <input name="CaloriesMin" type="number" min="0" max="1000" step="1" placeholder="min" />
+                and
+                <input name="CaloriesMax" type="number" min="0" max="1000" step="1" placeholder="max" />
+            </div>
+
+        </form>
         <div class="menucol">
 
-                <h2 class="menuheader">Entrees</h2>
-                <div class="menuitem">Briarheart Burger</div>
-                <div class="menuiteminfo">Price: $6.32</div>
-                <div class="menuiteminfo">Cals: 743</div>
-                <div class="menuitem">Double Draugr</div>
-                <div class="menuiteminfo">Price: $7.32</div>
-                <div class="menuiteminfo">Cals: 843</div>
-                <div class="menuitem">Thalmor Triple</div>
-                <div class="menuiteminfo">Price: $8.32</div>
-                <div class="menuiteminfo">Cals: 943</div>
-                <div class="menuitem">Smokehouse Skeleton</div>
-                <div class="menuiteminfo">Price: $5.62</div>
-                <div class="menuiteminfo">Cals: 602</div>
-                <div class="menuitem">Garden Orc Omelette</div>
-                <div class="menuiteminfo">Price: $4.57</div>
-                <div class="menuiteminfo">Cals: 404</div>
-                <div class="menuitem">Philly Poacher</div>
-                <div class="menuiteminfo">Price: $7.32</div>
-                <div class="menuiteminfo">Cals: 784</div>
-                <div class="menuitem">Thugs T-Bone</div>
-                <div class="menuiteminfo">Price: $6.44</div>
-                <div class="menuiteminfo">Cals: 983</div>
+            <h2 class="menuheader">Entrees</h2>
+
+            @foreach (MenuItem item in @Model.Menu) {
+                @if (item.Type.Equals("Entree")) {
+                    <div class="menuitem">@item.Name</div>
+                    <div class="menuiteminfo">Price: $@item.PriceS</div>
+                    <div class="menuiteminfo">Cals: @item.CaloriesS</div>
+                }
+
+            }
+
         </div>
         <div class="menucol">
 
             <h2 class="menuheader">Sides</h2>
-            <div class="menuitem">Dragonborn Waffle Fries</div>
-            <div class="menuiteminfo">Small: $0.42, 77 cals</div>
-            <div class="menuiteminfo">Medium: $0.76, 89 cals</div>
-            <div class="menuiteminfo">Large: $0.96, 100 cals</div>
-            <div class="menuitem">Vokun Salad</div>
-            <div class="menuiteminfo">Small: $0.93, 41 cals</div>
-            <div class="menuiteminfo">Medium: $1.28, 52 cals</div>
-            <div class="menuiteminfo">Large: $1.82, 73 cals</div>
-            <div class="menuitem">Mad Otar Grits</div>
-            <div class="menuiteminfo">Small: $1.22, 105 cals</div>
-            <div class="menuiteminfo">Medium: $1.58, 142 cals</div>
-            <div class="menuiteminfo">Large: $1.93, 179 cals</div>
-            <div class="menuitem">Fried Miraak</div>
-            <div class="menuiteminfo">Small: $1.78, 151 cals</div>
-            <div class="menuiteminfo">Medium: $2.01, 236 cals</div>
-            <div class="menuiteminfo">Large: $2.88, 306 cals</div>
+            @foreach (MenuItem item in @Model.Menu) {
+                @if (item.Type.Equals("Side")) {
+                    <div class="menuitem">@item.Name</div>
+                    <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
+                    <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
+                    <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
+                }
+
+            }
 
 
 
@@ -64,26 +76,15 @@
         <div class="menucol">
 
             <h2 class="menuheader">Drinks</h2>
-            <div class="menuitem">Aretino Apple Juice</div>
-            <div class="menuiteminfo">Small: $0.62, 44 cals</div>
-            <div class="menuiteminfo">Medium: $0.87, 88 cals</div>
-            <div class="menuiteminfo">Large: $1.01, 132 cals</div>
-            <div class="menuitem">Sailor Soda</div>
-            <div class="menuiteminfo">Small: $1.42, 117 cals</div>
-            <div class="menuiteminfo">Medium: $1.74, 153 cals</div>
-            <div class="menuiteminfo">Large: $2.07, 205 cals</div>
-            <div class="menuitem">Markarth Milk</div>
-            <div class="menuiteminfo">Small: $1.05, 56 cals</div>
-            <div class="menuiteminfo">Medium: $1.11, 72 cals</div>
-            <div class="menuiteminfo">Large: $1.22, 93 cals</div>
-            <div class="menuitem">Candlehearth Coffee</div>
-            <div class="menuiteminfo">Small: $0.75, 7 cals</div>
-            <div class="menuiteminfo">Medium: $1.25, 10 cals</div>
-            <div class="menuiteminfo">Large: $1.75, 20 cals</div>
-            <div class="menuitem">Warrior Water</div>
-            <div class="menuiteminfo">Small: $0.00, 0 cals</div>
-            <div class="menuiteminfo">Medium: $0.00, 0 cals</div>
-            <div class="menuiteminfo">Large: $0.00, 0 cals</div>
+            @foreach (MenuItem item in @Model.Menu) {
+                @if (item.Type.Equals("Drink")) {
+                    <div class="menuitem">@item.Name</div>
+                    <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
+                    <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
+                    <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
+                }
+
+            }
 
         </div>
 

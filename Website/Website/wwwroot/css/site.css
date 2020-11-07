@@ -108,3 +108,8 @@ menucol{
     color: dimgray;
     font-size: .7rem;
 }
+
+form#menufilter {
+    display: flex;
+    flex-direction: column;
+}
