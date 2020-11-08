@@ -48,5 +48,35 @@ namespace Website {
         /// Gets or sets the calories of a large side or drink
         /// </summary>
         public uint CaloriesL { get; set; }
+
+        /// <summary>
+        /// Gets or sets if the price small can be displayed
+        /// </summary>
+        public bool PriceSDisplay { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets if the price medium can be displayed
+        /// </summary>
+        public bool PriceMDisplay { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets if the price large can be displayed
+        /// </summary>
+        public bool PriceLDisplay { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets if the calories of a small can be displayed
+        /// </summary>
+        public bool CaloriesSDisplay { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets if the calories of a medium can be displayed
+        /// </summary>
+        public bool CaloriesMDisplay { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets if the calories of a large can be displayed
+        /// </summary>
+        public bool CaloriesLDisplay { get; set; } = true;
     }
 }

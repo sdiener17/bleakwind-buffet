@@ -19,7 +19,9 @@
                 <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
                 <input type="submit" value="Search">
             </div>
-
+            <div id="reset">
+                <input type="button" value="Reset Filters" />
+            </div>
             <h4>Menu Type</h4>
             @foreach (String type in MenuDatabase.MenuTypes) {
                 <label>
@@ -27,6 +29,8 @@
                     @type
                 </label>
             }
+            
+            
             <h4>Price</h4>
             <div>
                 Between
@@ -63,9 +67,15 @@
             @foreach (MenuItem item in @Model.Menu) {
                 @if (item.Type.Equals("Side")) {
                     <div class="menuitem">@item.Name</div>
-                    <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
-                    <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
-                    <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
+                    @if (item.PriceSDisplay == true && item.CaloriesSDisplay == true) {
+                        <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
+                    }
+                    @if (item.PriceMDisplay == true && item.CaloriesMDisplay == true) {
+                        <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
+                    }
+                    @if (item.PriceLDisplay == true && item.CaloriesLDisplay == true) {
+                        <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
+                    }
                 }
 
             }
@@ -79,9 +89,15 @@
             @foreach (MenuItem item in @Model.Menu) {
                 @if (item.Type.Equals("Drink")) {
                     <div class="menuitem">@item.Name</div>
-                    <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
-                    <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
-                    <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
+                    @if (item.PriceSDisplay == true && item.CaloriesSDisplay == true) {
+                        <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
+                    }
+                    @if (item.PriceMDisplay == true && item.CaloriesMDisplay == true) {
+                        <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
+                    }
+                    @if (item.PriceLDisplay == true && item.CaloriesLDisplay == true) {
+                        <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
+                    }
                 }
 
             }

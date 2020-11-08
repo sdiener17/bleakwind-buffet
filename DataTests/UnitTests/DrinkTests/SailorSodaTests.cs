@@ -30,15 +30,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ChangingSizeNotifiesProperty()
         {
             SailorSoda x = new SailorSoda();
-            Assert.PropertyChanged(x, "Medium", () =>
+            Assert.PropertyChanged(x, "Size", () =>
             {
                 x.Size = Size.Medium;
             });
-            Assert.PropertyChanged(x, "Large", () =>
+            Assert.PropertyChanged(x, "Size", () =>
             {
                 x.Size = Size.Large;
             });
-            Assert.PropertyChanged(x, "Small", () =>
+            Assert.PropertyChanged(x, "Size", () =>
             {
                 x.Size = Size.Small;
             });
@@ -49,27 +49,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ChangingFlavorNotifiesProperty()
         {
             SailorSoda x = new SailorSoda();
-            Assert.PropertyChanged(x, "Blackberry", () =>
+            Assert.PropertyChanged(x, "Flavor", () =>
             {
                 x.Flavor = SodaFlavor.Blackberry;
             });
-            Assert.PropertyChanged(x, "Cherry", () =>
+            Assert.PropertyChanged(x, "Flavor", () =>
             {
                 x.Flavor = SodaFlavor.Cherry;
             });
-            Assert.PropertyChanged(x, "Grapefruit", () =>
+            Assert.PropertyChanged(x, "Flavor", () =>
             {
                 x.Flavor = SodaFlavor.Grapefruit;
             });
-            Assert.PropertyChanged(x, "Lemon", () =>
+            Assert.PropertyChanged(x, "Flavor", () =>
             {
                 x.Flavor = SodaFlavor.Lemon;
             });
-            Assert.PropertyChanged(x, "Peach", () =>
+            Assert.PropertyChanged(x, "Flavor", () =>
             {
                 x.Flavor = SodaFlavor.Peach;
             });
-            Assert.PropertyChanged(x, "Watermelon", () =>
+            Assert.PropertyChanged(x, "Flavor", () =>
             {
                 x.Flavor = SodaFlavor.Watermelon;
             });

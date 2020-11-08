@@ -83,6 +83,7 @@ namespace Website {
             List<MenuItem> results = new List<MenuItem>();
             foreach (MenuItem item in menuitems) {
                 if (item.Type != null && filter.Contains(item.Type)) {
+                    
                     results.Add(item);
                 }
             }
@@ -114,7 +115,27 @@ namespace Website {
                         if ((item.PriceS <= max)) results.Add(item);
                     }
                     else {
-                        if ((item.PriceS <= max) || (item.PriceM <= max) || (item.PriceL <= max)) results.Add(item);
+                        if (item.PriceS <= max) {
+                            item.PriceSDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.PriceSDisplay = false;
+                        }
+                        if (item.PriceM <= max) {
+                            item.PriceMDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.PriceMDisplay = false;
+                        }
+                        if (item.PriceL <= max) {
+                            item.PriceLDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.PriceLDisplay = false;
+                        }
                     }
                     
                 }
@@ -128,7 +149,27 @@ namespace Website {
                         if ((item.PriceS >= min)) results.Add(item);
                     }
                     else {
-                        if ((item.PriceS >= min) || (item.PriceM >= min) || (item.PriceL >= min)) results.Add(item);
+                        if (item.PriceS >= min) {
+                            item.PriceSDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.PriceSDisplay = false;
+                        }
+                        if (item.PriceM >= min) {
+                            item.PriceMDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.PriceMDisplay = false;
+                        }
+                        if(item.PriceL >= min) {
+                            item.PriceLDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.PriceLDisplay = false;
+                        }
                     }
                     
                 }
@@ -143,12 +184,29 @@ namespace Website {
                     }
                 }
                 else {
-                    if (((item.PriceS >= min) || (item.PriceM >= min) || (item.PriceL >= min)) &&
-                        ((item.PriceS <= max) || (item.PriceM <= max) || (item.PriceL <= max))) {
-                        results.Add(item);
+                    if ((item.PriceS >= min) && item.PriceS <= max) {
+                        item.PriceSDisplay = true;
+                        if(!results.Contains(item)) results.Add(item);
+
+                    }
+                    else {
+                        item.PriceSDisplay = false;
+                    }
+                    if ((item.PriceM >= min) && (item.PriceM <= max)) {
+                        item.PriceMDisplay = true;
+                        if (!results.Contains(item)) results.Add(item);
+                    }
+                    else {
+                        item.PriceMDisplay = false;
+                    }
+                    if ((item.PriceL >= min) && (item.PriceL <= max)) {
+                        item.PriceLDisplay = true;
+                        if (!results.Contains(item)) results.Add(item);
+                    }
+                    else {
+                        item.PriceLDisplay = false;
                     }
                 }
-                
             }
             return results;
         }
@@ -178,7 +236,27 @@ namespace Website {
                         if ((item.CaloriesS <= max)) results.Add(item);
                     }
                     else {
-                        if ((item.CaloriesS <= max) || (item.CaloriesM <= max) || (item.CaloriesL <= max)) results.Add(item);
+                        if (item.CaloriesS <= max) {
+                            item.CaloriesSDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.CaloriesSDisplay = false;
+                        }
+                        if (item.CaloriesM <= max) {
+                            item.CaloriesMDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.CaloriesMDisplay = false;
+                        }
+                        if (item.CaloriesL <= max) {
+                            item.CaloriesLDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.CaloriesLDisplay = false;
+                        }
                     }
 
                 }
@@ -192,7 +270,27 @@ namespace Website {
                         if (item.CaloriesS >= min) results.Add(item);
                     }
                     else {
-                        if ((item.CaloriesS >= min) || (item.CaloriesM >= min) || (item.CaloriesL >= min)) results.Add(item);
+                        if (item.CaloriesS >= min) {
+                            item.CaloriesSDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.CaloriesSDisplay = false;
+                        }
+                        if (item.CaloriesM >= min) {
+                            item.CaloriesMDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.CaloriesMDisplay = false;
+                        }
+                        if (item.CaloriesL >= min) {
+                            item.CaloriesLDisplay = true;
+                            if (!results.Contains(item)) results.Add(item);
+                        }
+                        else {
+                            item.CaloriesLDisplay = false;
+                        }
                     }
                 }
                 return results;
@@ -206,9 +304,27 @@ namespace Website {
                     }
                 }
                 else {
-                    if (((item.CaloriesS >= min) || (item.CaloriesM >= min) || (item.CaloriesL >= min)) &&
-                        ((item.CaloriesS <= max) || (item.CaloriesM <= max) || (item.CaloriesL <= max))) {
-                        results.Add(item);
+                    if ((item.CaloriesS >= min) && item.CaloriesS <= max) {
+                        item.CaloriesSDisplay = true;
+                        if (!results.Contains(item)) results.Add(item);
+
+                    }
+                    else {
+                        item.CaloriesSDisplay = false;
+                    }
+                    if ((item.CaloriesM >= min) && (item.CaloriesM <= max)) {
+                        item.CaloriesMDisplay = true;
+                        if (!results.Contains(item)) results.Add(item);
+                    }
+                    else {
+                        item.CaloriesMDisplay = false;
+                    }
+                    if ((item.CaloriesL >= min) && (item.CaloriesL <= max)) {
+                        item.CaloriesLDisplay = true;
+                        if (!results.Contains(item)) results.Add(item);
+                    }
+                    else {
+                        item.CaloriesLDisplay = false;
                     }
                 }
                 

@@ -48,7 +48,7 @@ namespace Website.Pages {
             _logger = logger;
         }
 
-        public void OnGet(string SearchTerms, string[] MenuTypes, double? PriceMin, double? PriceMax, int? CaloriesMin, int? CaloriesMax) {
+        public void OnGet(string SearchTerms, string[]? MenuTypes, double? PriceMin, double? PriceMax, int? CaloriesMin, int? CaloriesMax) {
             Menu = MenuDatabase.Search(SearchTerms);
             Menu = MenuDatabase.FilterByMenuType(Menu,MenuTypes);
             Menu = MenuDatabase.FilterByPrice(Menu, PriceMin, PriceMax);
