@@ -234,80 +234,74 @@ namespace BleakwindBuffet.DataTests.UnitTests {
                 item => Assert.True((item as VokunSalad).Size == Size.Medium),
                 item => Assert.True((item as VokunSalad).Size == Size.Large)
                 );
+
+
+            menu = Menu.FilterByMenuType(Menu.FullMenu(), null);
+                Assert.Equal((Menu.FullMenu() as List<IOrderItem>).Count, (menu as List<IOrderItem>).Count);
+            
+            
             
 
-            filter.Clear();
-            menu = Menu.FilterByMenuType(Menu.FullMenu(), filter);
-            Assert.Collection<IOrderItem>(menu,
-                item => Assert.IsType<BriarheartBurger>(item),
-                item => Assert.IsType<DoubleDraugr>(item),
-                item => Assert.IsType<GardenOrcOmelette>(item),
-                item => Assert.IsType<PhillyPoacher>(item),
-                item => Assert.IsType<SmokehouseSkeleton>(item),
-                item => Assert.IsType<ThalmorTriple>(item),
-                item => Assert.IsType<ThugsTBone>(item),
-                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Small),
-                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Medium),
-                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Large),
-                item => Assert.True((item as FriedMiraak).Size == Size.Small),
-                item => Assert.True((item as FriedMiraak).Size == Size.Medium),
-                item => Assert.True((item as FriedMiraak).Size == Size.Large),
-                item => Assert.True((item as MadOtarGrits).Size == Size.Small),
-                item => Assert.True((item as MadOtarGrits).Size == Size.Medium),
-                item => Assert.True((item as MadOtarGrits).Size == Size.Large),
-                item => Assert.True((item as VokunSalad).Size == Size.Small),
-                item => Assert.True((item as VokunSalad).Size == Size.Medium),
-                item => Assert.True((item as VokunSalad).Size == Size.Large),
-                item => Assert.True((item as AretinoAppleJuice).Size == Size.Small),
-                item => Assert.True((item as AretinoAppleJuice).Size == Size.Medium),
-                item => Assert.True((item as AretinoAppleJuice).Size == Size.Large),
-                item => Assert.True((item as CandlehearthCoffee).Size == Size.Small),
-                item => Assert.True((item as CandlehearthCoffee).Size == Size.Medium),
-                item => Assert.True((item as CandlehearthCoffee).Size == Size.Large),
-                item => Assert.True((item as MarkarthMilk).Size == Size.Small),
-                item => Assert.True((item as MarkarthMilk).Size == Size.Medium),
-                item => Assert.True((item as MarkarthMilk).Size == Size.Large),
-                item => Assert.True((item as WarriorWater).Size == Size.Small),
-                item => Assert.True((item as WarriorWater).Size == Size.Medium),
-                item => Assert.True((item as WarriorWater).Size == Size.Large),
-
-                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
-                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
-                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
-
-                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
-                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
-                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
-
-                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
-                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
-                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
-
-                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
-                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
-                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
-
-                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
-                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
-                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
-
-                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon),
-                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon),
-                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon)
-                );
-
         }
 
 
-
-        public void FilterByPriceShouldReturnCorrectItems() {
-
+        [Theory]
+        [InlineData(null,null)]
+        [InlineData(0,null)]
+        [InlineData(null,2000)]
+        [InlineData(0,2000)]
+        [InlineData(100,650)]
+        public void FilterByCaloriesShouldReturnCorrectItems(int? min, int? max) {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            menu = Menu.FilterByCalories(menu, min, max);
+            if(min==null && max == null) {
+                Assert.Equal((Menu.FullMenu() as List<IOrderItem>).Count, (menu as List<IOrderItem>).Count);
+            }
+            else if (min == null) {
+                foreach(IOrderItem item in menu) {
+                    Assert.True(item.Calories <= max);
+                }
+            }
+            else if (max == null) {
+                foreach(IOrderItem item in menu) {
+                    Assert.True(item.Calories >= min);
+                }
+            }
+            else {
+                foreach(IOrderItem item in menu) {
+                    Assert.True(item.Calories <= max && item.Calories >= min);
+                }
+            }
         }
 
 
-
-        public void FilterByCaloriesShouldReturnCorrectItems() {
-
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData(0, null)]
+        [InlineData(null, 20)]
+        [InlineData(0,20)]
+        [InlineData(1.5,7)]
+        public void FilterByPriceShouldReturnCorrectItems(double? min, double?max) {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            menu = Menu.FilterByPrice(menu, min, max);
+            if (min == null && max == null) {
+                Assert.Equal((Menu.FullMenu() as List<IOrderItem>).Count, (menu as List<IOrderItem>).Count);
+            }
+            else if (min == null) {
+                foreach (IOrderItem item in menu) {
+                    Assert.True(item.Price <= max);
+                }
+            }
+            else if (max == null) {
+                foreach (IOrderItem item in menu) {
+                    Assert.True(item.Price >= min);
+                }
+            }
+            else {
+                foreach (IOrderItem item in menu) {
+                    Assert.True(item.Price <= max && item.Calories >= min);
+                }
+            }
         }
     }
 }

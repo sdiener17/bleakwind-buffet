@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Sarah Diener
+ * Class: MenuDatabase
+ * Purpose: A class for dealing with the menu items
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
