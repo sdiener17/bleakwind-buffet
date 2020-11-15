@@ -28,7 +28,7 @@ namespace BleakwindBuffet.DataTests.UnitTests {
                 item => Assert.IsType<ThalmorTriple>(item),
                 item => Assert.IsType<ThugsTBone>(item)
                 );
-            
+
         }
 
 
@@ -36,7 +36,7 @@ namespace BleakwindBuffet.DataTests.UnitTests {
         [Fact]
         public void DrinksShouldReturnCorrectList() {
             List<IOrderItem> drinks = new List<IOrderItem>(Menu.Drinks());
-            
+
             Assert.Collection<IOrderItem>(drinks,
                 item => Assert.True((item as AretinoAppleJuice).Size == Size.Small),
                 item => Assert.True((item as AretinoAppleJuice).Size == Size.Medium),
@@ -51,7 +51,7 @@ namespace BleakwindBuffet.DataTests.UnitTests {
                 item => Assert.True((item as WarriorWater).Size == Size.Medium),
                 item => Assert.True((item as WarriorWater).Size == Size.Large),
 
-                item => Assert.True(((item as SailorSoda).Size == Size.Small)&&(item as SailorSoda).Flavor==SodaFlavor.Blackberry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
                 item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
                 item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
 
@@ -93,6 +93,7 @@ namespace BleakwindBuffet.DataTests.UnitTests {
                 item => Assert.True((item as VokunSalad).Size == Size.Small),
                 item => Assert.True((item as VokunSalad).Size == Size.Medium),
                 item => Assert.True((item as VokunSalad).Size == Size.Large)
+                
                 );
         }
 
@@ -153,5 +154,160 @@ namespace BleakwindBuffet.DataTests.UnitTests {
             );
         }
 
+
+        [Fact]
+        public void SearchShouldReturnCorrectItem() {
+            string term = "Briarheart Burger";
+            IEnumerable<IOrderItem> menu = Menu.Search(term);
+            Assert.Collection<IOrderItem>(menu,
+                item => Assert.IsType<BriarheartBurger>(item)
+                );
+            term = "briarheart burger";
+            menu = Menu.Search(term);
+            Assert.Collection<IOrderItem>(menu,
+                item => Assert.IsType<BriarheartBurger>(item)
+                );
+            term = "sailor soda";
+            menu = Menu.Search(term);
+            Assert.Collection<IOrderItem>(menu,
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon)
+                );
+        }
+
+
+        [Fact]
+        public void FilterByMenuTypeShouldReturnCorrectTypes() {
+            List<string> filter = new List<string>();
+            filter.Add("Entree");
+            IEnumerable<IOrderItem> menu = Menu.FilterByMenuType(Menu.FullMenu(), filter);
+            Assert.Collection<IOrderItem>(menu,
+                item => Assert.IsType<BriarheartBurger>(item),
+                item => Assert.IsType<DoubleDraugr>(item),
+                item => Assert.IsType<GardenOrcOmelette>(item),
+                item => Assert.IsType<PhillyPoacher>(item),
+                item => Assert.IsType<SmokehouseSkeleton>(item),
+                item => Assert.IsType<ThalmorTriple>(item),
+                item => Assert.IsType<ThugsTBone>(item)
+                );
+            filter.Add("Side");
+            menu = Menu.FilterByMenuType(Menu.FullMenu(), filter);
+            Assert.Collection<IOrderItem>(menu,
+                item => Assert.IsType<BriarheartBurger>(item),
+                item => Assert.IsType<DoubleDraugr>(item),
+                item => Assert.IsType<GardenOrcOmelette>(item),
+                item => Assert.IsType<PhillyPoacher>(item),
+                item => Assert.IsType<SmokehouseSkeleton>(item),
+                item => Assert.IsType<ThalmorTriple>(item),
+                item => Assert.IsType<ThugsTBone>(item),
+                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Small),
+                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Medium),
+                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Large),
+                item => Assert.True((item as FriedMiraak).Size == Size.Small),
+                item => Assert.True((item as FriedMiraak).Size == Size.Medium),
+                item => Assert.True((item as FriedMiraak).Size == Size.Large),
+                item => Assert.True((item as MadOtarGrits).Size == Size.Small),
+                item => Assert.True((item as MadOtarGrits).Size == Size.Medium),
+                item => Assert.True((item as MadOtarGrits).Size == Size.Large),
+                item => Assert.True((item as VokunSalad).Size == Size.Small),
+                item => Assert.True((item as VokunSalad).Size == Size.Medium),
+                item => Assert.True((item as VokunSalad).Size == Size.Large)
+                );
+            
+
+            filter.Clear();
+            menu = Menu.FilterByMenuType(Menu.FullMenu(), filter);
+            Assert.Collection<IOrderItem>(menu,
+                item => Assert.IsType<BriarheartBurger>(item),
+                item => Assert.IsType<DoubleDraugr>(item),
+                item => Assert.IsType<GardenOrcOmelette>(item),
+                item => Assert.IsType<PhillyPoacher>(item),
+                item => Assert.IsType<SmokehouseSkeleton>(item),
+                item => Assert.IsType<ThalmorTriple>(item),
+                item => Assert.IsType<ThugsTBone>(item),
+                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Small),
+                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Medium),
+                item => Assert.True((item as DragonbornWaffleFries).Size == Size.Large),
+                item => Assert.True((item as FriedMiraak).Size == Size.Small),
+                item => Assert.True((item as FriedMiraak).Size == Size.Medium),
+                item => Assert.True((item as FriedMiraak).Size == Size.Large),
+                item => Assert.True((item as MadOtarGrits).Size == Size.Small),
+                item => Assert.True((item as MadOtarGrits).Size == Size.Medium),
+                item => Assert.True((item as MadOtarGrits).Size == Size.Large),
+                item => Assert.True((item as VokunSalad).Size == Size.Small),
+                item => Assert.True((item as VokunSalad).Size == Size.Medium),
+                item => Assert.True((item as VokunSalad).Size == Size.Large),
+                item => Assert.True((item as AretinoAppleJuice).Size == Size.Small),
+                item => Assert.True((item as AretinoAppleJuice).Size == Size.Medium),
+                item => Assert.True((item as AretinoAppleJuice).Size == Size.Large),
+                item => Assert.True((item as CandlehearthCoffee).Size == Size.Small),
+                item => Assert.True((item as CandlehearthCoffee).Size == Size.Medium),
+                item => Assert.True((item as CandlehearthCoffee).Size == Size.Large),
+                item => Assert.True((item as MarkarthMilk).Size == Size.Small),
+                item => Assert.True((item as MarkarthMilk).Size == Size.Medium),
+                item => Assert.True((item as MarkarthMilk).Size == Size.Large),
+                item => Assert.True((item as WarriorWater).Size == Size.Small),
+                item => Assert.True((item as WarriorWater).Size == Size.Medium),
+                item => Assert.True((item as WarriorWater).Size == Size.Large),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Blackberry),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Cherry),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Grapefruit),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Lemon),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Peach),
+
+                item => Assert.True(((item as SailorSoda).Size == Size.Small) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon),
+                item => Assert.True(((item as SailorSoda).Size == Size.Medium) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon),
+                item => Assert.True(((item as SailorSoda).Size == Size.Large) && (item as SailorSoda).Flavor == SodaFlavor.Watermelon)
+                );
+
+        }
+
+
+
+        public void FilterByPriceShouldReturnCorrectItems() {
+
+        }
+
+
+
+        public void FilterByCaloriesShouldReturnCorrectItems() {
+
+        }
     }
 }

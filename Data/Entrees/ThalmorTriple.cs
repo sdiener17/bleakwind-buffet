@@ -14,6 +14,14 @@ namespace BleakwindBuffet.Data.Entrees {
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Gets the description of the entree
+        /// </summary>
+        public string Description {
+            get { return "Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg."; }
+        }
+
+
+        /// <summary>
         /// Gets the price of the burger.
         /// </summary>
         public override double Price {

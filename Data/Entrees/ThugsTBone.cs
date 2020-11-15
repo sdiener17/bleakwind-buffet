@@ -13,6 +13,14 @@ namespace BleakwindBuffet.Data.Entrees {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        /// <summary>
+        /// Gets the description of the entree
+        /// </summary>
+        public string Description {
+            get { return "Juicy T-Bone, not much else to say."; }
+        }
+
         /// <summary>
         /// Gets the price of the T-Bone.
         /// </summary>

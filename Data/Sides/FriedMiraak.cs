@@ -14,6 +14,16 @@ namespace BleakwindBuffet.Data.Sides {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        /// <summary>
+        /// Gets the description of the item
+        /// </summary>
+        public string Description {
+            get { return "Perfectly prepared hash brown pancakes."; }
+        }
+
+
+
         /// <summary>
         /// Gets the price of the side.
         /// </summary>

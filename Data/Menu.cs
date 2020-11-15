@@ -243,5 +243,143 @@ namespace BleakwindBuffet.Data {
             return menu;
         }
 
-    }
+
+
+        /// <summary>
+        /// Gets all the menu items containing the search term
+        /// </summary>
+        /// <param name="terms"></param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> Search(string terms) {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            //null check
+            if (terms == null) {
+                return FullMenu();
+            }
+            //Adds the movie if the title is a match
+            foreach (IOrderItem item in FullMenu()) {
+                if (item.ToString() != null && item.ToString().ToLower().Contains(terms.ToLower())) {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+
+
+        /// <summary>
+        /// Filters the provided collection of menu items
+        /// </summary>
+        /// <param name="menuitems">The collection of menu items to filter</param>
+        /// <param name="filter">The menu items to include</param>
+        /// <returns>A collection containing only movies that match the filter</returns>
+        public static IEnumerable<IOrderItem> FilterByMenuType(IEnumerable<IOrderItem> menuitems, List<string> filter) {
+
+            // If no filter is specified, just return the provided collection
+            if (filter == null || filter.Count==0) {
+
+                return menuitems;
+            }
+
+            // Filter the supplied collection of movies
+            List<IOrderItem> results = new List<IOrderItem>();
+            foreach (IOrderItem item in menuitems) {
+                if (filter.Contains("Entree") && item is Entree) {
+                    results.Add(item);
+                }
+                if (filter.Contains("Side") && item is Side) {
+                    results.Add(item);
+                }
+                if (filter.Contains("Drink") && item is Drink) {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+
+
+        /// <summary>
+        /// Filters the provided collection of menu items
+        /// to those with price falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="menuitems">The collection of menu items to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered movie collection</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menuItems, double? min, double? max) {
+            var results = new List<IOrderItem>();
+
+            //No values specified
+            if (min == null && max == null) {
+                return menuItems;
+            }
+            // only a maximum specified
+            if (min == null) {
+                foreach (IOrderItem item in menuItems) {
+                        if ((item.Price <= max)) results.Add(item);
+                    }
+                return results;
+            }
+            // only a minimum specified
+            if (max == null) {
+                foreach (IOrderItem item in menuItems) {
+                        if ((item.Price >= min)) results.Add(item);
+                }
+                return results;
+            }
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in menuItems) {
+                    if ((item.Price <= max) && (item.Price >= min)) {
+                        results.Add(item);
+                    } 
+            }
+            return results;
+
+        }
+
+
+        /// <summary>
+        /// Filters the provided collection of menu items
+        /// to those with calories falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="menuitems">The collection of menu items to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered movie collection</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menuItems, double? min, double? max) {
+            var results = new List<IOrderItem>();
+
+            //No values specified
+            if (min == null && max == null) {
+                return menuItems;
+            }
+            // only a maximum specified
+            if (min == null) {
+                foreach (IOrderItem item in menuItems) {
+                    if ((item.Calories <= max)) results.Add(item);
+                }
+                return results;
+            }
+            // only a minimum specified
+            if (max == null) {
+                foreach (IOrderItem item in menuItems) {
+                    if ((item.Calories >= min)) results.Add(item);
+                }
+                return results;
+            }
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in menuItems) {
+                if ((item.Calories <= max) && (item.Calories >= min)) {
+                    results.Add(item);
+                }
+            }
+            return results;
+
+        }
+
+    }//end class
 }

@@ -16,6 +16,14 @@ using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
     public class WarriorWaterTests {
 
+
+        [Fact]
+        public void ShouldReturnCorrectDescription() {
+            WarriorWater f = new WarriorWater();
+            Assert.Equal("It’s water. Just water.", f.Description);
+        }
+
+
         [Fact]
         public void ShouldBeAssignableToINotifyPropertyChanged()
         {

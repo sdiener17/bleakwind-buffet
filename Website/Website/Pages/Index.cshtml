@@ -19,9 +19,7 @@
                 <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
                 <input type="submit" value="Search">
             </div>
-            <div id="reset">
-                <input type="button" value="Reset Filters" />
-            </div>
+            
             <h4>Menu Type</h4>
             @foreach (String type in MenuDatabase.MenuTypes) {
                 <label>
@@ -51,33 +49,49 @@
 
             <h2 class="menuheader">Entrees</h2>
 
-            @foreach (MenuItem item in @Model.Menu) {
-                @if (item.Type.Equals("Entree")) {
-                    <div class="menuitem">@item.Name</div>
-                    <div class="menuiteminfo">Price: $@item.PriceS</div>
-                    <div class="menuiteminfo">Cals: @item.CaloriesS</div>
-                }
+            @*@foreach (MenuItem item in @Model.IndexMenu) {
+            @if (item.Type.Equals("Entree")) {
+                <div class="menuitem">@item.Name</div>
+                <div class="menuiteminfo">Price: $@item.PriceS</div>
+                <div class="menuiteminfo">Cals: @item.CaloriesS</div>
+            }
 
+        }*@
+            @foreach (BleakwindBuffet.Data.IOrderItem item in @Model.IndexMenu) {
+                @if (item is BleakwindBuffet.Data.Entrees.Entree) {
+                    <div class="menuitem">@item.ToString()</div>
+                    <div class="menuiteminfo">Price: $@item.Price</div>
+                    <div class="menuiteminfo">Cals: @item.Calories</div>
+                    <div class="menuiteminfo">@item.Description</div>
+                }
             }
 
         </div>
         <div class="menucol">
 
             <h2 class="menuheader">Sides</h2>
-            @foreach (MenuItem item in @Model.Menu) {
-                @if (item.Type.Equals("Side")) {
-                    <div class="menuitem">@item.Name</div>
-                    @if (item.PriceSDisplay == true && item.CaloriesSDisplay == true) {
-                        <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
-                    }
-                    @if (item.PriceMDisplay == true && item.CaloriesMDisplay == true) {
-                        <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
-                    }
-                    @if (item.PriceLDisplay == true && item.CaloriesLDisplay == true) {
-                        <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
-                    }
+            @*@foreach (MenuItem item in @Model.IndexMenu) {
+            @if (item.Type.Equals("Side")) {
+                <div class="menuitem">@item.Name</div>
+                @if (item.PriceSDisplay == true && item.CaloriesSDisplay == true) {
+                    <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
                 }
+                @if (item.PriceMDisplay == true && item.CaloriesMDisplay == true) {
+                    <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
+                }
+                @if (item.PriceLDisplay == true && item.CaloriesLDisplay == true) {
+                    <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
+                }
+            }
 
+        }*@
+            @foreach (BleakwindBuffet.Data.IOrderItem item in @Model.IndexMenu) {
+                @if (item is BleakwindBuffet.Data.Sides.Side) {
+                    <div class="menuitem">@item.ToString()</div>
+                    <div class="menuiteminfo">Price: $@item.Price</div>
+                    <div class="menuiteminfo">Cals: @item.Calories</div>
+                    <div class="menuiteminfo">@item.Description</div>
+                }
             }
 
 
@@ -86,20 +100,28 @@
         <div class="menucol">
 
             <h2 class="menuheader">Drinks</h2>
-            @foreach (MenuItem item in @Model.Menu) {
-                @if (item.Type.Equals("Drink")) {
-                    <div class="menuitem">@item.Name</div>
-                    @if (item.PriceSDisplay == true && item.CaloriesSDisplay == true) {
-                        <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
-                    }
-                    @if (item.PriceMDisplay == true && item.CaloriesMDisplay == true) {
-                        <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
-                    }
-                    @if (item.PriceLDisplay == true && item.CaloriesLDisplay == true) {
-                        <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
-                    }
+            @*@foreach (MenuItem item in @Model.IndexMenu) {
+            @if (item.Type.Equals("Drink")) {
+                <div class="menuitem">@item.Name</div>
+                @if (item.PriceSDisplay == true && item.CaloriesSDisplay == true) {
+                    <div class="menuiteminfo">Small: $@item.PriceS, @item.CaloriesS cals</div>
                 }
+                @if (item.PriceMDisplay == true && item.CaloriesMDisplay == true) {
+                    <div class="menuiteminfo">Medium: $@item.PriceM, @item.CaloriesM cals </div>
+                }
+                @if (item.PriceLDisplay == true && item.CaloriesLDisplay == true) {
+                    <div class="menuiteminfo">Large: $@item.PriceL, @item.CaloriesL cals </div>
+                }
+            }
 
+        }*@
+            @foreach (BleakwindBuffet.Data.IOrderItem item in @Model.IndexMenu) {
+                @if (item is BleakwindBuffet.Data.Drinks.Drink) {
+                    <div class="menuitem">@item.ToString()</div>
+                    <div class="menuiteminfo">Price: $@item.Price</div>
+                    <div class="menuiteminfo">Cals: @item.Calories</div>
+                    <div class="menuiteminfo">@item.Description</div>
+                }
             }
 
         </div>

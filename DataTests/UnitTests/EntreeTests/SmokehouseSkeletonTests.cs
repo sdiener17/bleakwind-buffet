@@ -12,6 +12,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
     {
+        [Fact]
+        public void ShouldReturnCorrectDescription() {
+            SmokehouseSkeleton f = new SmokehouseSkeleton();
+            Assert.Equal("Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.", f.Description);
+        }
 
         [Fact]
         public void ShouldBeAssignableToINotifyPropertyChanged()

@@ -14,6 +14,15 @@ namespace BleakwindBuffet.Data.Drinks{
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        /// <summary>
+        /// Gets the description of the item
+        /// </summary>
+        public string Description {
+            get { return "Fresh squeezed apple juice."; }
+        }
+
+
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>

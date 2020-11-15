@@ -15,6 +15,15 @@ namespace BleakwindBuffet.Data.Sides {
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Gets the description of the item
+        /// </summary>
+        public string Description {
+            get { return "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges."; }
+        }
+
+
+
+        /// <summary>
         /// Gets the price of the side.
         /// </summary>
         public override double Price {
